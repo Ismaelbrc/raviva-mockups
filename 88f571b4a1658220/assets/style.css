@@ -54,12 +54,12 @@ html:not(.js) .pre{display:none}
 html.dia .btn:not(.ghost){background:var(--brasa);color:var(--papel)}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:100svh;background:var(--carvao);color:#F3E9DC;display:flex;align-items:flex-end;overflow:hidden;--sym:#E8A63C;--sym-soft:#8a6a3a;--mut:#aaa39b}
-.hero-bg{position:absolute;inset:-4% 0 0;background:#070707 url(hero-fire.jpg) center 78%/cover no-repeat;will-change:transform;animation:kb 26s ease-in-out infinite alternate}
+.hero{position:relative;min-height:100svh;background:#050505;color:#F3E9DC;display:flex;align-items:flex-end;overflow:hidden;--sym:#E8A63C;--sym-soft:#8a6a3a;--mut:#aaa39b}
+.hero-bg{position:absolute;inset:-4% 0 0;background:#070707 url(hero-fire.jpg) center 78%/cover no-repeat;will-change:transform;animation:kb 26s ease-in-out infinite alternate;filter:brightness(.78) contrast(1.45) saturate(.82);-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 18%,#000 55%);mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.35) 18%,#000 55%)}
 @keyframes kb{from{transform:scale(1.04)}to{transform:scale(1.12) translateY(-1.5%)}}
-.hero-flick{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(60% 46% at 50% 100%,rgba(255,150,40,.55),rgba(201,73,31,.25) 45%,transparent 72%);animation:fl 3.4s infinite steps(1,end)}
+.hero-flick{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(55% 40% at 50% 100%,rgba(255,150,40,.32),rgba(201,73,31,.1) 45%,transparent 72%);animation:fl 3.4s infinite steps(1,end)}
 @keyframes fl{0%{opacity:.55}7%{opacity:.9}13%{opacity:.62}22%{opacity:1}31%{opacity:.7}44%{opacity:.95}53%{opacity:.58}67%{opacity:.88}79%{opacity:.66}91%{opacity:1}100%{opacity:.55}}
-.hero-sun{position:absolute;left:50%;top:56%;width:min(120vh,150vw);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;background:radial-gradient(closest-side,rgba(255,196,90,.55),rgba(232,166,60,.28) 32%,rgba(201,73,31,.12) 58%,transparent 72%);mix-blend-mode:screen;animation:sun 6s ease-in-out infinite}
+.hero-sun{position:absolute;left:50%;top:56%;width:min(120vh,150vw);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;background:radial-gradient(closest-side,rgba(255,206,110,.38),rgba(232,166,60,.14) 32%,rgba(201,73,31,.04) 58%,transparent 72%);mix-blend-mode:screen;animation:sun 6s ease-in-out infinite}
 @keyframes sun{0%,100%{opacity:.75;transform:translate(-50%,-50%) scale(.96)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}}
 .hero-rays{position:absolute;left:50%;top:56%;width:min(190vh,230vw);aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;mix-blend-mode:screen;opacity:.55;
   background:repeating-conic-gradient(from 0deg,rgba(255,200,100,.20) 0 2.2deg,transparent 2.2deg 11deg);-webkit-mask-image:radial-gradient(closest-side,transparent 14%,#000 28%,transparent 70%);mask-image:radial-gradient(closest-side,transparent 14%,#000 28%,transparent 70%);animation:rays 120s linear infinite}
@@ -79,7 +79,7 @@ html.dia .btn:not(.ghost){background:var(--brasa);color:var(--papel)}
 .scroll-cue i{width:1px;height:70px;background:linear-gradient(var(--sol),transparent);animation:cue 2.2s ease-in-out infinite}
 @keyframes cue{0%,100%{opacity:.25}50%{opacity:1}}
 @media (max-width:860px){.hero-foot{grid-template-columns:1fr}.hero-cta{justify-content:flex-start}.scroll-cue{display:none}.hero-sym{top:50%;width:min(46vh,64vw)}.hero-sun,.hero-rays{top:50%}.hero-in{padding-top:5.6rem}}
-@media (max-width:700px){.mega{white-space:normal}.mega .ln{display:block;margin:-.22em 0 0}}}
+@media (max-width:700px){.hero-foot{position:relative;margin:0 calc(var(--pad)*-1) calc(-2.2rem);padding:5rem var(--pad) 2.2rem;background:linear-gradient(180deg,rgba(5,5,5,0),rgba(5,5,5,.88) 32%,#050505)}.mega{white-space:normal}.mega .ln{display:block;margin:-.22em 0 0}}}
 
 .marq{overflow:hidden;background:var(--sol);color:var(--carvao);transform:skewY(-1.4deg);margin:-1px 0 0;position:relative;z-index:4;box-shadow:0 0 60px rgba(232,166,60,.35)}
 .marq-in{display:flex;width:max-content;white-space:nowrap;padding:.95rem 0;animation:mq 34s linear infinite;font-family:var(--display);font-size:clamp(1.2rem,2.4vw,1.8rem);letter-spacing:.14em;text-transform:uppercase}
