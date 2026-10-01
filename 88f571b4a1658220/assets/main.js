@@ -8,14 +8,10 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const html = document.documentElement;
 
-  // Preencha o número (DDI+DDD+número, só dígitos) para trocar o e-mail pelo WhatsApp nos botões de contato.
-  const CONTACT = { whatsapp: '' };
-  if (CONTACT.whatsapp) {
-    $$('[data-contact]').forEach(a => {
-      a.href = 'https://wa.me/' + CONTACT.whatsapp + '?text=' + encodeURIComponent('Olá! Vim pelo site da Raviva e quero acender o meu negócio.');
-      a.target = '_blank'; a.rel = 'noopener';
-    });
-  }
+  // Os botões de contato já saem do build.py apontando para o WhatsApp (constante WHATSAPP lá).
+
+  // botão flutuante do WhatsApp: mostra o rótulo uma vez, logo após a abertura
+  const fab = $('.wa-fab'); if (fab) { const once = () => { if (scrollY < innerHeight * 0.9) return; removeEventListener('scroll', once); fab.classList.add('hint'); setTimeout(() => fab.classList.remove('hint'), 4500); }; addEventListener('scroll', once, { passive: true }); }
 
   // ---------- sem GSAP (CDN bloqueada): tudo visível, sem animação ----------
   if (!window.gsap || !window.ScrollTrigger) { html.classList.remove('js'); const p = $('#pre'); if (p) p.remove(); return; }
