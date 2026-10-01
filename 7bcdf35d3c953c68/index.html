@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Plena Vita · Desenvolvimento Humano · Elìna Borges</title>
+<meta name="description" content="Palestras e cursos de desenvolvimento humano para pessoas, empresas e organizações públicas, privadas e do terceiro setor. Com Elìna Borges.">
+<meta name="theme-color" content="#2b1f33">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--mag:#D6006E;--lar:#F57F00;--ver:#2E9A3A;--tinta:#2b1f33;--tinta2:#3a2c44;--mut:#6f6377;--rosa:#f7e8ef;--rosa2:#fbf3f7;--papel:#fffdfb;--line:#ecdfe6;
+ --serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,sans-serif;--ease:cubic-bezier(.2,.8,.2,1);--pad:clamp(1.2rem,4.5vw,3.5rem)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--papel);color:var(--tinta);font:300 17px/1.65 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+::selection{background:var(--mag);color:#fff}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:var(--pad)}
+.ey{display:flex;align-items:center;gap:.9rem;font:600 .72rem/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--mag);margin-bottom:1.4rem}
+.ey:before{content:"";width:28px;height:1px;background:currentColor}
+.h2{font:300 clamp(2.3rem,5.2vw,4.6rem)/1.04 var(--serif);letter-spacing:-.02em;text-wrap:balance}
+.h2 em,.h1 em{font-style:italic;color:var(--mag)}
+.lede{font-size:clamp(1.05rem,1.4vw,1.22rem);color:var(--mut);max-width:50ch}
+.btn{display:inline-flex;align-items:center;gap:.7rem;padding:1.05rem 1.8rem;border-radius:99px;background:var(--mag);color:#fff;font:500 .98rem var(--sans);transition:transform .4s var(--ease),box-shadow .4s,background .3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px -14px rgba(214,0,110,.7)}.btn i{font-style:normal;transition:transform .4s var(--ease)}.btn:hover i{transform:translateX(5px)}
+.btn.ghost{background:transparent;color:var(--tinta);border:1px solid rgba(43,31,51,.25)}.btn.ghost:hover{background:var(--tinta);color:#fff;box-shadow:none}
+.btn svg{width:19px;height:19px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+.ribbon{background:var(--tinta);color:#cdbfd6;font:400 11.5px/1 var(--sans);letter-spacing:.04em;text-align:center;padding:9px 12px}.ribbon b{color:#fff;font-weight:500}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;transition:background .4s,box-shadow .4s}
+.nav.s{background:rgba(255,253,251,.86);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:84px;transition:height .4s}.nav.s .nav-in{height:68px}
+.nav-logo img{height:46px;width:auto;transition:height .4s}.nav.s .nav-logo img{height:38px}
+.links{display:flex;gap:2.2rem;font-size:.9rem;font-weight:400}.links a{position:relative;opacity:.78;transition:opacity .3s}.links a:hover{opacity:1}
+.links a:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1.5px;background:var(--mag);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}.links a:hover:after{transform:scaleX(1)}
+.nav .btn{padding:.75rem 1.3rem;font-size:.88rem}
+@media (max-width:980px){.links{display:none}}
+@media (max-width:560px){.nav .btn span{display:none}.nav .btn{padding:.75rem}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--papel) 0%,var(--rosa2) 60%,var(--rosa) 100%)}
+.hero-in{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(2rem,5vw,5rem);align-items:center;min-height:calc(100svh - 120px);padding-block:clamp(3rem,7vw,6rem)}
+.h1{font:300 clamp(2.9rem,6.6vw,6.4rem)/.98 var(--serif);letter-spacing:-.03em;margin-bottom:1.8rem}
+.h1 .l{display:block;overflow:hidden;padding-bottom:.08em}.h1 .l>span{display:block;transform:translateY(105%);animation:ln 1.3s var(--ease) forwards}
+.h1 .l:nth-child(2)>span{animation-delay:.12s}.h1 .l:nth-child(3)>span{animation-delay:.24s}
+@keyframes ln{to{transform:none}}
+.hero .lede{margin-bottom:2.4rem}
+.hero-cta{display:flex;gap:.9rem;flex-wrap:wrap}
+.hero-meta{display:flex;gap:2.4rem;margin-top:3.4rem;padding-top:1.8rem;border-top:1px solid var(--line);flex-wrap:wrap}
+.hero-meta div b{display:block;font:300 2.3rem/1 var(--serif);color:var(--tinta)}.hero-meta div span{font-size:.8rem;color:var(--mut);letter-spacing:.02em}
+.fade-up{opacity:0;transform:translateY(24px);animation:fu 1.2s var(--ease) forwards}.fd1{animation-delay:.5s}.fd2{animation-delay:.65s}.fd3{animation-delay:.8s}
+@keyframes fu{to{opacity:1;transform:none}}
+/* órbitas */
+.orb{position:relative;aspect-ratio:1;width:min(100%,600px);justify-self:center}
+.orb svg.rings{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.orb circle.r{fill:none;stroke-width:1.3}
+.orb .spin{transform-origin:300px 300px;animation:sp 38s linear infinite}.orb .spin.b{animation-duration:54s;animation-direction:reverse}.orb .spin.c{animation-duration:72s}
+@keyframes sp{to{transform:rotate(360deg)}}
+.orb .photo{position:absolute;inset:19%;border-radius:50%;overflow:hidden;box-shadow:0 40px 80px -30px rgba(43,31,51,.55);opacity:0;transform:scale(.9);animation:ph 1.6s var(--ease) .35s forwards}
+.orb .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 35%;transform:scale(1.04)}
+@keyframes ph{to{opacity:1;transform:none}}
+.orb .tag{position:absolute;right:-2%;bottom:13%;padding:1rem 1.25rem;border-radius:18px;background:#fff;box-shadow:0 24px 50px -20px rgba(43,31,51,.4);font-size:.82rem;line-height:1.35;opacity:0;animation:fu 1s var(--ease) 1.4s forwards}
+.orb .tag b{display:block;font:400 1.05rem/1.2 var(--serif);color:var(--tinta)}.orb .tag span{color:var(--mut)}
+.orb .tag2{left:-4%;right:auto;top:16%;bottom:auto;animation-delay:1.6s;display:flex;align-items:center;gap:.7rem}
+.orb .tag2 i{width:10px;height:10px;border-radius:50%;background:var(--ver);box-shadow:0 0 0 5px rgba(46,154,58,.15)}
+@media (max-width:900px){.hero-in{grid-template-columns:1fr;min-height:0;padding-top:1.5rem}.orb{order:-1;width:min(84vw,460px);margin-bottom:2.4rem}.hero-meta{gap:1.6rem}
+ .orb .tag2{display:none}.orb .tag{left:0;right:0;margin:auto;width:max-content;bottom:-6%;text-align:center;padding:.75rem 1.1rem;font-size:.75rem;white-space:nowrap}.orb .tag br{display:none}}
+
+/* marquee de clientes */
+.mq{padding:2.6rem 0;border-block:1px solid var(--line);background:var(--papel);overflow:hidden}
+.mq p{text-align:center;font:500 .7rem/1 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--mut);margin-bottom:1.6rem}
+.mq-row{display:flex;width:max-content;animation:mq 60s linear infinite}.mq-row.r2{animation-direction:reverse;animation-duration:70s;margin-top:.9rem}
+.mq-row span{font:300 clamp(1.25rem,2vw,1.7rem)/1 var(--serif);color:var(--tinta2);padding:0 1.6rem;white-space:nowrap;display:flex;align-items:center;gap:3.2rem}
+.mq-row span:after{content:"";width:7px;height:7px;border-radius:50%;background:var(--c,var(--mag));opacity:.75}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq:hover .mq-row{animation-play-state:paused}
+
+/* crença */
+.cren{padding:clamp(6rem,14vw,12rem) 0 clamp(5rem,10vw,9rem)}
+.cren-t{font:300 clamp(1.9rem,4.3vw,3.9rem)/1.2 var(--serif);letter-spacing:-.02em;max-width:24ch}
+.cren-t .w{opacity:.14;transition:opacity .25s}.cren-t .w.on{opacity:1}.cren-t .w.hl{color:var(--mag);font-style:italic}
+.cren-s{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:4rem;max-width:980px;margin-left:auto}
+.cren-s p{color:var(--mut)}.cren-s p:first-child{font:400 1.25rem/1.5 var(--serif);color:var(--tinta)}
+@media (max-width:760px){.cren-s{grid-template-columns:1fr;gap:1.4rem}}
+
+/* proposta */
+.prop{padding:clamp(5rem,10vw,8rem) 0;background:var(--rosa2)}
+.prop-h{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:clamp(3rem,6vw,5rem)}
+.pil{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.pi{position:relative;padding:2.4rem 2rem 2.2rem;border-radius:28px;background:#fff;border:1px solid var(--line);overflow:hidden;transition:transform .6s var(--ease),box-shadow .6s}
+.pi:hover{transform:translateY(-8px);box-shadow:0 40px 70px -40px rgba(43,31,51,.45)}
+.pi:before{content:"";position:absolute;right:-30%;top:-30%;width:80%;aspect-ratio:1;border-radius:50%;background:var(--c);opacity:.07;transition:transform .8s var(--ease),opacity .6s}.pi:hover:before{transform:scale(1.4);opacity:.12}
+.pi .ic{width:62px;height:62px;border-radius:50%;background:var(--c);display:grid;place-items:center;margin-bottom:2.2rem}.pi .ic svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pi .n{position:absolute;right:2rem;top:2.2rem;font:300 2.6rem/1 var(--serif);color:#e3d5dd}
+.pi h3{font:400 1.65rem/1.15 var(--serif);letter-spacing:-.01em}
+.prop-f{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.2rem}
+.prop-f div{padding:1.8rem 2rem;border-radius:24px;background:var(--tinta);color:#efe6f2}.prop-f b{display:block;font:400 1.25rem var(--serif);color:#fff;margin-bottom:.3rem}.prop-f span{color:#bfb0c8;font-size:.95rem}
+@media (max-width:860px){.prop-h,.pil,.prop-f{grid-template-columns:1fr}}
+
+/* palestras */
+.pal{padding:clamp(6rem,12vw,10rem) 0}
+.pal-g{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,6vw,6rem);align-items:start}
+.pal-l{position:sticky;top:120px}
+.big15{font:300 clamp(7rem,16vw,13rem)/.8 var(--serif);color:var(--mag);letter-spacing:-.05em;margin:2.6rem 0 1rem}
+.cat{border-top:1px solid var(--line)}.cat:last-child{border-bottom:1px solid var(--line)}
+.cat button{all:unset;cursor:pointer;width:100%;display:grid;grid-template-columns:auto 1fr auto;gap:1.4rem;align-items:center;padding:1.8rem 0}
+.cat .k{font:500 .72rem var(--sans);letter-spacing:.2em;color:var(--c)}.cat h3{font:300 clamp(1.5rem,2.6vw,2.2rem)/1.1 var(--serif);letter-spacing:-.01em;transition:color .3s,transform .5s var(--ease)}
+.cat button:hover h3{transform:translateX(8px)}
+.cat .pm{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);position:relative;transition:background .4s,border-color .4s,transform .5s var(--ease)}
+.cat .pm:before,.cat .pm:after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.5px;margin:-.75px 0 0 -7px;background:var(--tinta);transition:transform .4s,background .3s}.cat .pm:after{transform:rotate(90deg)}
+.cat.open .pm{background:var(--c);border-color:var(--c);transform:rotate(180deg)}.cat.open .pm:before,.cat.open .pm:after{background:#fff}.cat.open .pm:after{transform:rotate(0)}
+.cat .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}.cat.open .body{grid-template-rows:1fr}
+.cat .body>div{overflow:hidden}
+.cat ul{list-style:none;padding:0 0 2rem 3.4rem;display:grid;gap:.75rem}
+.cat li{display:flex;gap:.9rem;align-items:baseline;font-size:1.05rem;color:var(--tinta2)}.cat li:before{content:"";flex:0 0 7px;height:7px;border-radius:50%;background:var(--c);transform:translateY(-2px)}
+@media (max-width:860px){.pal-g{grid-template-columns:1fr}.pal-l{position:relative;top:0}.cat ul{padding-left:0}}
+
+/* faixa sol */
+.band{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;color:#fff;isolation:isolate}
+.band .bg{position:absolute;inset:-12% 0;z-index:-2;background:url(img/sol.jpg) center 60%/cover;will-change:transform}
+.band:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 60% at 50% 70%,rgba(245,127,0,.0),rgba(25,14,22,.35) 70%),linear-gradient(180deg,rgba(25,14,22,.55),rgba(25,14,22,.1) 40%,rgba(25,14,22,.7))}
+.band blockquote{max-width:20ch;font:300 clamp(2.3rem,5.6vw,5.2rem)/1.06 var(--serif);letter-spacing:-.025em;font-style:italic}
+.band cite{display:block;margin-top:2rem;font:500 .74rem var(--sans);letter-spacing:.32em;text-transform:uppercase;font-style:normal;color:#ffd8b0}
+.band .qm{width:64px;height:auto;margin-bottom:2rem;fill:none;stroke:#ffb36b;stroke-width:5;stroke-linecap:round}
+
+/* cursos */
+.cur{padding:clamp(6rem,12vw,10rem) 0;background:var(--tinta);color:#f3eaf6;position:relative;overflow:hidden}
+.cur .ey{color:#ff6fb0}.cur .lede{color:#bfb0c8}
+.cur-h{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:4rem}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12);border-radius:28px;overflow:hidden}
+.cc{position:relative;padding:2.4rem 2.2rem 3rem;background:var(--tinta);min-height:240px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:background .5s}
+.cc:before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--c) 32%,transparent),transparent 60%);opacity:0;transition:opacity .4s}
+.cc:hover:before{opacity:1}
+.cc .k{position:relative;font:500 .78rem var(--sans);letter-spacing:.2em;color:var(--c)}
+.cc h3{position:relative;font:300 clamp(1.5rem,2.3vw,2.05rem)/1.12 var(--serif);letter-spacing:-.01em;color:#fff}
+.cc .ar{position:absolute;right:2rem;bottom:2rem;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;transition:transform .5s var(--ease),background .4s}
+.cc:hover .ar{transform:rotate(-45deg);background:var(--c);border-color:var(--c)}
+.cur-x{display:flex;gap:1.4rem;align-items:center;margin-top:1.4rem;padding:1.8rem 2rem;border-radius:24px;background:linear-gradient(110deg,rgba(214,0,110,.25),rgba(245,127,0,.12));border:1px solid rgba(255,255,255,.12)}
+.cur-x svg{flex:0 0 40px;width:40px;height:40px;fill:none;stroke:#ff6fb0;stroke-width:1.6}
+.cur-x b{color:#fff;font-weight:500}
+.cur .glow{position:absolute;right:-20%;top:-30%;width:70vw;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(214,0,110,.28),transparent);pointer-events:none}
+@media (max-width:900px){.cur-h{grid-template-columns:1fr}.cg{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.cg{grid-template-columns:1fr}.cc{min-height:180px}}
+
+/* para quem */
+.pq{padding:clamp(6rem,12vw,10rem) 0}
+.pq-g{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-top:4rem}
+.pc{position:relative;border-radius:28px;overflow:hidden;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem;color:#fff;isolation:isolate}
+.pc .bg{position:absolute;inset:0;z-index:-2;background-size:cover;background-position:center;transition:transform 1.4s var(--ease)}.pc:hover .bg{transform:scale(1.08)}
+.pc:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 30%,rgba(25,14,22,.9)),linear-gradient(0deg,color-mix(in srgb,var(--c) 30%,transparent),transparent 60%)}
+.pc .ic{width:54px;height:54px;border-radius:50%;background:var(--c);display:grid;place-items:center;margin-bottom:1.3rem}.pc .ic svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pc h3{font:300 2rem/1.05 var(--serif)}.pc p{color:rgba(255,255,255,.78);font-size:.95rem;margin-top:.4rem}
+@media (max-width:900px){.pq-g{grid-template-columns:1fr}.pc{min-height:320px}}
+
+/* método */
+.met{padding:clamp(5rem,10vw,8rem) 0;background:var(--rosa)}
+.mt{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4.5rem}
+.mt svg.ln{position:absolute;left:0;right:0;top:56px;width:100%;height:4px;overflow:visible}
+.mt svg.ln path{fill:none;stroke:var(--mag);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s var(--ease)}
+.mt.in svg.ln path{stroke-dashoffset:0}
+.ms{position:relative}
+.ms .ci{width:112px;height:112px;border-radius:50%;background:var(--papel);border:1.5px solid var(--c);display:grid;place-items:center;margin-bottom:2rem;transform:scale(.6);opacity:0;transition:transform 1s var(--ease),opacity 1s}
+.mt.in .ms .ci{transform:none;opacity:1}.mt.in .ms:nth-child(3) .ci{transition-delay:.6s}.mt.in .ms:nth-child(4) .ci{transition-delay:1.2s}
+.ms .ci svg{width:40px;height:40px;stroke:var(--c);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ms .k{font:600 .74rem var(--sans);letter-spacing:.24em;color:var(--c);margin-bottom:.6rem}
+.ms h3{font:300 2.3rem/1.05 var(--serif);margin-bottom:.8rem}.ms p{color:var(--mut);max-width:30ch}
+@media (max-width:800px){.mt{grid-template-columns:1fr;gap:3rem}.mt svg.ln{display:none}}
+
+/* quem conduz */
+.qc{padding:clamp(6rem,12vw,10rem) 0;overflow:hidden}
+.qc-g{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(2.5rem,7vw,7rem);align-items:center}
+.qc-ph{position:relative}
+.qc-ph .fr{position:relative;border-radius:999px 999px 32px 32px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 50px 90px -40px rgba(43,31,51,.6)}
+.qc-ph .fr img{width:100%;height:118%;object-fit:cover;object-position:50% 30%;will-change:transform}
+.qc-ph .ring{position:absolute;left:-8%;top:-6%;width:116%;aspect-ratio:1;pointer-events:none}
+.qc-ph .sig{position:absolute;right:-6%;bottom:8%;padding:1.2rem 1.4rem;border-radius:20px;background:#fff;box-shadow:0 30px 60px -25px rgba(43,31,51,.45)}
+.qc-ph .sig b{display:block;font:400 1.2rem var(--serif)}.qc-ph .sig span{font-size:.8rem;color:var(--mut)}
+.qc h2 .acc{font-style:normal}
+.qc .tl{font:300 italic clamp(1.3rem,2vw,1.7rem)/1.35 var(--serif);color:var(--mag);margin:1.2rem 0 2.6rem}
+.cred{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem}
+.cred h4{font:600 .7rem var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--mut);margin-bottom:1.2rem}
+.cred li{list-style:none;padding:.85rem 0;border-top:1px solid var(--line);font-size:.98rem;color:var(--tinta2);display:flex;gap:.8rem}
+.cred li:before{content:"";flex:0 0 6px;height:6px;margin-top:.62rem;border-radius:50%;background:var(--c,var(--mag))}
+@media (max-width:900px){.qc-g{grid-template-columns:1fr}.qc-ph{max-width:440px;margin:0 auto}.cred{grid-template-columns:1fr}}
+
+/* clientes */
+.cli{padding:clamp(5rem,10vw,8rem) 0;background:var(--rosa2)}
+.cli-h{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.cli-n{display:flex;align-items:baseline;gap:1rem}.cli-n b{font:300 clamp(4.5rem,9vw,7.5rem)/.8 var(--serif);color:var(--mag);letter-spacing:-.04em}.cli-n span{color:var(--mut);max-width:12ch;line-height:1.3}
+.flt{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.flt button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.6rem;padding:.7rem 1.15rem;border-radius:99px;border:1px solid var(--line);background:#fff;font-size:.88rem;transition:background .3s,color .3s,border-color .3s}
+.flt button i{width:8px;height:8px;border-radius:50%;background:var(--c,var(--tinta))}
+.flt button.on{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+.og{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+.o{display:flex;align-items:center;gap:.9rem;padding:1.3rem 1.3rem;min-height:84px;border-radius:18px;background:#fff;border:1px solid var(--line);font-size:.95rem;line-height:1.3;transition:opacity .4s,transform .5s var(--ease),border-color .3s}
+.o i{flex:0 0 9px;height:9px;border-radius:50%;background:var(--c)}
+.o:hover{border-color:var(--c);transform:translateY(-3px)}
+.o.off{opacity:.18;transform:scale(.97)}
+@media (max-width:980px){.og{grid-template-columns:repeat(2,1fr)}}
+
+/* final */
+.fin{position:relative;padding:clamp(7rem,14vw,12rem) 0;overflow:hidden;color:#fff;isolation:isolate}
+.fin .bg{position:absolute;inset:0;z-index:-2;background:url(img/sol2.jpg) center 40%/cover}
+.fin:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(25,14,22,.92),rgba(25,14,22,.55) 60%,rgba(25,14,22,.25))}
+.fin-g{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center}
+.fin .ey{color:#ffb36b}
+.fin h2{font:300 clamp(2.8rem,6.4vw,6rem)/1 var(--serif);letter-spacing:-.03em}
+.fin .q{font:300 italic clamp(1.4rem,2.4vw,2rem)/1.3 var(--serif);color:#ffc98f;margin:1.6rem 0 1rem}
+.fin .lede{color:rgba(255,255,255,.75)}
+.card{padding:2.2rem;border-radius:28px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+.card .who{display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem}.card .who img{width:62px;height:62px;border-radius:50%;object-fit:cover;object-position:50% 30%}
+.card .who b{display:block;font:400 1.4rem var(--serif)}.card .who span{font-size:.85rem;color:rgba(255,255,255,.7)}
+.card a.row{display:flex;align-items:center;gap:.9rem;padding:1rem 0;border-top:1px solid rgba(255,255,255,.15);font-size:1rem;transition:color .3s}.card a.row:hover{color:#ffc98f}
+.card a.row svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6}
+.card .btn{width:100%;justify-content:center;margin-top:1.4rem;background:#25D366;color:#0b2b16;font-weight:600}
+@media (max-width:900px){.fin-g{grid-template-columns:1fr}}
+footer{padding:3rem 0;background:var(--tinta);color:#bfb0c8;font-size:.85rem}
+.ft{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.ft img{height:40px;background:#fff;border-radius:12px;padding:6px 10px}
+.wa{position:fixed;right:20px;bottom:20px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 16px 30px -10px rgba(0,0,0,.45);transform:scale(0);transition:transform .5s var(--ease)}
+.wa.on{transform:scale(1)}.wa svg{width:30px;height:30px;fill:#fff}
+.wa:after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:pu 2.4s ease-out infinite}@keyframes pu{from{transform:scale(1);opacity:.9}to{transform:scale(1.7);opacity:0}}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv,.fade-up,.orb .photo,.orb .tag{opacity:1!important;transform:none!important}.h1 .l>span{transform:none}.cren-t .w{opacity:1}}
+</style>
+</head>
+<body>
+<div class="ribbon">Proposta de site criada pela <b>Agência Raviva</b> para a Plena Vita</div>
+
+<header class="nav" id="nav"><div class="wrap nav-in">
+  <a class="nav-logo" href="#topo" aria-label="Plena Vita, início"><img src="img/logo.png" alt="Plena Vita" width="483" height="276"></a>
+  <nav class="links" aria-label="Seções"><a href="#proposta">Proposta</a><a href="#palestras">Palestras</a><a href="#cursos">Cursos</a><a href="#elina">Elìna Borges</a><a href="#clientes">Clientes</a></nav>
+  <a class="btn" href="#contato"><span>Fale com a Elìna</span><i>→</i></a>
+</div></header>
+
+<main id="topo">
+<!-- HERO -->
+<section class="hero"><div class="wrap hero-in">
+  <div>
+    <p class="ey fade-up">Plena Vita · Desenvolvimento Humano</p>
+    <h1 class="h1"><span class="l"><span>Algumas pessoas</span></span><span class="l"><span>podem, sim,</span></span><span class="l"><span><em>mudar o mundo.</em></span></span></h1>
+    <p class="lede fade-up fd1">Palestras e cursos que transformam autoconhecimento em ação, para pessoas, empresas e organizações públicas, privadas e do terceiro setor.</p>
+    <div class="hero-cta fade-up fd2"><a class="btn" href="#contato">Quero levar à minha organização <i>→</i></a><a class="btn ghost" href="#palestras">Ver palestras</a></div>
+    <div class="hero-meta fade-up fd3">
+      <div><b data-n="24">24</b><span>organizações atendidas</span></div>
+      <div><b data-n="15">15</b><span>temas de palestra</span></div>
+      <div><b data-n="6">6</b><span>cursos de formação</span></div>
+    </div>
+  </div>
+  <div class="orb" aria-hidden="false">
+    <svg class="rings" viewBox="0 0 600 600" aria-hidden="true">
+      <g class="spin"><circle class="r" cx="300" cy="300" r="296" stroke="#D6006E" opacity=".55"/><circle cx="300" cy="4" r="9" fill="#D6006E"/></g>
+      <g class="spin b"><circle class="r" cx="300" cy="300" r="258" stroke="#F57F00" opacity=".6"/><circle cx="558" cy="300" r="6" fill="#F57F00"/></g>
+      <g class="spin c"><circle class="r" cx="300" cy="300" r="222" stroke="#2E9A3A" opacity=".55"/><circle cx="300" cy="522" r="5" fill="#2E9A3A"/></g>
+    </svg>
+    <div class="photo"><img src="img/elina.jpg" alt="Elìna Borges, fundadora da Plena Vita" width="1400" height="1400"></div>
+    <div class="tag tag2"><i></i><span><b>Presencial ou on-line</b><span>em todo o Brasil</span></span></div>
+    <div class="tag"><b>Elìna Borges</b><span>Psicóloga, administradora, <br>palestrante e escritora</span></div>
+  </div>
+</div></section>
+
+<!-- CLIENTES MARQUEE -->
+<div class="mq" aria-label="Organizações que já confiaram na Plena Vita">
+  <p>Quem já confiou na Plena Vita</p>
+  <div class="mq-row" id="mq1"></div>
+  <div class="mq-row r2" id="mq2"></div>
+</div>
+
+<!-- CRENÇA -->
+<section class="cren"><div class="wrap">
+  <p class="ey rv">No que acreditamos</p>
+  <p class="cren-t" id="crenT">Acreditamos no Ser Humano, em seu potencial e em seu talento. Acreditamos no Planeta e no Universo. Por isso, as Pessoas e o Planeta são o nosso negócio.</p>
+  <div class="cren-s">
+    <p class="rv">Nós trabalhamos por um mundo melhor, feito por Seres Humanos melhores, Empresas e Organizações melhores.</p>
+    <p class="rv d1">Nossos cursos e palestras ajudam você a se conhecer melhor e, o mais importante, a fazer com que esse autoconhecimento se transforme em ação poderosa, capaz de mudar sua vida, seu local de trabalho, sua cidade, seu país e até, por que não, o mundo.</p>
+  </div>
+</div></section>
+
+<!-- PROPOSTA -->
+<section class="prop" id="proposta"><div class="wrap">
+  <div class="prop-h"><div><p class="ey rv">Nossa proposta</p><h2 class="h2 rv">Uma nova forma de <em>ver, sentir</em> e transformar a realidade.</h2></div>
+  <p class="lede rv d1">Cursos e palestras personalizados, desenhados para a necessidade específica de cada organização.</p></div>
+  <div class="pil">
+    <article class="pi rv" style="--c:var(--mag)"><span class="n">01</span><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg></div><h3>Produzir resultados</h3></article>
+    <article class="pi rv d1" style="--c:var(--lar)"><span class="n">02</span><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Promover melhorias</h3></article>
+    <article class="pi rv d2" style="--c:var(--ver)"><span class="n">03</span><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21v-9"/><path d="M12 12c0-4 3-6 7-6 0 4-3 6-7 6z"/><path d="M12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5z"/><path d="M8 21h8"/></svg></div><h3>Preparar pessoas e organizações para o mundo contemporâneo</h3></article>
+  </div>
+  <div class="prop-f">
+    <div class="rv"><b>Sob medida</b><span>Cada organização tem uma necessidade. O conteúdo nasce dela.</span></div>
+    <div class="rv d1"><b>Presencial ou on-line</b><span>Organizações públicas, privadas e do terceiro setor em todo o Brasil.</span></div>
+  </div>
+</div></section>
+
+<!-- PALESTRAS -->
+<section class="pal" id="palestras"><div class="wrap pal-g">
+  <div class="pal-l">
+    <p class="ey rv">Portfólio</p><h2 class="h2 rv">Palestras</h2>
+    <p class="big15 rv"><span data-n="15">15</span></p>
+    <p class="lede rv">temas disponíveis, adaptáveis ao público e ao formato. Desenvolvimento humano nas organizações públicas, privadas e do terceiro setor.</p>
+  </div>
+  <div class="cats" id="cats">
+    <div class="cat open rv" style="--c:var(--mag)"><button aria-expanded="true"><span class="k">01</span><h3>Liderança e Gestão</h3><span class="pm"></span></button>
+      <div class="body"><div><ul><li>Gestão Contemporânea</li><li>Liderança Transformadora</li><li>Equipes Brilhantes</li><li>Educação Audaciosa</li></ul></div></div></div>
+    <div class="cat rv d1" style="--c:var(--lar)"><button aria-expanded="false"><span class="k">02</span><h3>Inteligência Emocional</h3><span class="pm"></span></button>
+      <div class="body"><div><ul><li>Inteligência Emocional e Social: o Poder das Relações Humanas</li><li>Agilidade Emocional</li><li>Emoções que Curam</li><li>Liberdade Emocional</li><li>Saúde Mental</li></ul></div></div></div>
+    <div class="cat rv d2" style="--c:var(--ver)"><button aria-expanded="false"><span class="k">03</span><h3>Habilidades para o Futuro</h3><span class="pm"></span></button>
+      <div class="body"><div><ul><li>Habilidades em Destaque para o Século XXI</li><li>As Habilidades do Futuro</li><li>Mulher, Mercado de Trabalho e Finanças</li></ul></div></div></div>
+    <div class="cat rv d3" style="--c:var(--mag)"><button aria-expanded="false"><span class="k">04</span><h3>Sentido e Propósito</h3><span class="pm"></span></button>
+      <div class="body"><div><ul><li>A Vida que Vale a Pena ser Vivida</li><li>A Arte de Enfrentar Gigantes</li><li>O Significado da Vida</li></ul></div></div></div>
+  </div>
+</div></section>
+
+<!-- FAIXA SOL -->
+<section class="band"><div class="bg" id="bandBg"></div><div class="wrap">
+  <svg class="qm rv" viewBox="0 0 64 48"><path d="M8 6v18c0 8 2 14 10 18M36 6v18c0 8 2 14 10 18"/><circle cx="14" cy="14" r="8"/><circle cx="42" cy="14" r="8"/></svg>
+  <blockquote class="rv d1">Uma das qualidades mais maravilhosas da mente é a sua capacidade de poder ser transformada.</blockquote>
+  <cite class="rv d2">Dalai Lama</cite>
+</div></section>
+
+<!-- CURSOS -->
+<section class="cur" id="cursos"><div class="glow"></div><div class="wrap" style="position:relative">
+  <div class="cur-h"><div><p class="ey rv">Desenvolvimento</p><h2 class="h2 rv">Cursos</h2></div><p class="lede rv d1">Percursos para desenvolver competências e transformar conhecimento em prática.</p></div>
+  <div class="cg" id="cg">
+    <article class="cc rv" style="--c:#ff4fa0"><span class="k">01</span><h3>Formação de Líderes</h3><span class="ar">↗</span></article>
+    <article class="cc rv d1" style="--c:#ff9a2e"><span class="k">02</span><h3>Equipes de Alta Performance</h3><span class="ar">↗</span></article>
+    <article class="cc rv d2" style="--c:#4cc95a"><span class="k">03</span><h3>Equipe: Inteligência Social Coletiva</h3><span class="ar">↗</span></article>
+    <article class="cc rv" style="--c:#ff4fa0"><span class="k">04</span><h3>Inteligência Emocional e Social</h3><span class="ar">↗</span></article>
+    <article class="cc rv d1" style="--c:#ff9a2e"><span class="k">05</span><h3>Gestão Estratégica</h3><span class="ar">↗</span></article>
+    <article class="cc rv d2" style="--c:#4cc95a"><span class="k">06</span><h3>Habilidades para o Futuro</h3><span class="ar">↗</span></article>
+  </div>
+  <div class="cur-x rv"><svg viewBox="0 0 40 40"><path d="M18 6c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z"/><path d="M33 4v6M30 7h6M7 31v4M5 33h4"/></svg><p><b>Além do portfólio.</b> Outras palestras e cursos podem ser elaborados com temas específicos para atender às necessidades da sua organização.</p></div>
+</div></section>
+
+<!-- PARA QUEM -->
+<section class="pq"><div class="wrap">
+  <p class="ey rv">Para quem</p><h2 class="h2 rv">Desenvolvimento humano para <em>todos os contextos</em>.</h2>
+  <div class="pq-g">
+    <article class="pc rv" style="--c:var(--mag)"><div class="bg" style="background-image:url(img/plateia.jpg)"></div><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 21h18"/></svg></div><h3>Setor público</h3><p>Prefeituras, tribunais, ministério público, assembleia e órgãos de Estado.</p></article>
+    <article class="pc rv d1" style="--c:var(--lar)"><div class="bg" style="background-image:url(img/curso.jpg)"></div><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div><h3>Setor privado</h3><p>Empresas e lideranças que querem equipes mais humanas e mais fortes.</p></article>
+    <article class="pc rv d2" style="--c:var(--ver)"><div class="bg" style="background-image:url(img/palco.jpg)"></div><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 8.5c1.5-2.5 5-2 5 .8 0 2.2-3 4.2-5 5.7-2-1.5-5-3.5-5-5.7 0-2.8 3.5-3.3 5-.8z"/><path d="M3 18c3-1 5-1 7 0l4 1c1 .3 2-.2 2.4-1L21 15"/></svg></div><h3>Terceiro setor</h3><p>Fundações, instituições e organizações movidas por propósito.</p></article>
+  </div>
+</div></section>
+
+<!-- MÉTODO -->
+<section class="met"><div class="wrap">
+  <p class="ey rv">Modo de trabalhar</p><h2 class="h2 rv">Cada organização tem <em>uma necessidade</em>.</h2>
+  <div class="mt" id="mt">
+    <svg class="ln" viewBox="0 0 1000 4" preserveAspectRatio="none" aria-hidden="true"><path d="M56 2H944" pathLength="1"/></svg>
+    <div class="ms" style="--c:var(--mag)"><div class="ci"><svg viewBox="0 0 24 24"><path d="M7 9a5 5 0 0 1 10 0c0 3-2 4-3 5.5S13 18 11 19a3 3 0 0 1-4-2"/><path d="M10 9.5a2 2 0 0 1 4 0c0 1.2-1 1.6-1.6 2.3"/></svg></div><p class="k">01</p><h3>Escutar</h3><p>Compreender o contexto e as necessidades específicas.</p></div>
+    <div class="ms" style="--c:var(--lar)"><div class="ci"><svg viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19z"/><path d="M14 7l3 3"/><path d="M4 9l3-3 2 2M15 18l3-3 2 2"/></svg></div><p class="k">02</p><h3>Personalizar</h3><p>Desenhar cursos e palestras alinhados ao desafio.</p></div>
+    <div class="ms" style="--c:var(--ver)"><div class="ci"><svg viewBox="0 0 24 24"><path d="M11 3c.8 5 3 7.2 8 8-5 .8-7.2 3-8 8-.8-5-3-7.2-8-8 5-.8 7.2-3 8-8z"/><path d="M19 2v4M17 4h4"/></svg></div><p class="k">03</p><h3>Transformar</h3><p>Promover melhorias e preparar pessoas para o mundo contemporâneo.</p></div>
+  </div>
+</div></section>
+
+<!-- QUEM CONDUZ -->
+<section class="qc" id="elina"><div class="wrap qc-g">
+  <div class="qc-ph rv">
+    <svg class="ring" viewBox="0 0 600 600" aria-hidden="true"><g class="spin" style="transform-origin:300px 300px;animation:sp 60s linear infinite"><circle cx="300" cy="300" r="296" fill="none" stroke="#D6006E" stroke-width="1.3" opacity=".5"/><circle cx="510" cy="92" r="9" fill="#D6006E"/></g></svg>
+    <div class="fr"><img id="qcImg" src="img/elina.jpg" alt="Elìna Borges" loading="lazy" width="1400" height="1400"></div>
+    <div class="sig"><b>Elìna Borges</b><span>Fundadora da Plena Vita</span></div>
+  </div>
+  <div>
+    <p class="ey rv">Quem conduz</p>
+    <h2 class="h2 rv">Elìna Borges</h2>
+    <p class="tl rv d1">Desenvolvimento humano com múltiplas perspectivas.</p>
+    <div class="cred">
+      <div class="rv d1"><h4>Formação</h4><ul><li>Mestre em Engenharia da Produção</li><li>Especialista em Gestão Estratégica de Marketing</li><li>Especialista em Terapia Cognitivo-Comportamental</li><li>Administradora, Psicóloga e Psicanalista</li></ul></div>
+      <div class="rv d2" style="--c:var(--lar)"><h4>Atuação</h4><ul><li>Palestrante e escritora</li><li>Acadêmica da Academia Goianiense de Letras</li><li>Acadêmica da Academia Espírita de Letras do Estado de Goiás</li></ul></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CLIENTES -->
+<section class="cli" id="clientes"><div class="wrap">
+  <div class="cli-h"><div><p class="ey rv">Relacionamentos</p><h2 class="h2 rv">Quem confia na <em>Plena Vita</em>.</h2></div>
+    <div class="cli-n rv"><b data-n="24">24</b><span>organizações atendidas</span></div></div>
+  <div class="flt rv" id="flt"><button class="on" data-f="*">Todas</button><button data-f="e" style="--c:var(--lar)"><i></i>Empresas</button><button data-f="i" style="--c:var(--ver)"><i></i>Instituições</button><button data-f="p" style="--c:var(--mag)"><i></i>Setor público</button></div>
+  <div class="og" id="og"></div>
+</div></section>
+
+<!-- FINAL -->
+<section class="fin" id="contato"><div class="bg"></div><div class="wrap fin-g">
+  <div>
+    <p class="ey rv">Um próximo passo</p>
+    <h2 class="rv">Vamos juntos promover grandes transformações.</h2>
+    <p class="q rv d1">Quem disse que você não é uma delas?</p>
+    <p class="lede rv d2">Vamos construir uma experiência sob medida para a sua organização.</p>
+  </div>
+  <div class="card rv d2">
+    <div class="who"><img src="img/elina.jpg" alt="" loading="lazy"><div><b>Elìna Borges</b><span>Plena Vita · Desenvolvimento Humano</span></div></div>
+    <a class="row" href="tel:+5562981729344"><svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2"/></svg>(62) 98172-9344</a>
+    <a class="row" href="mailto:elinamrborges@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>elinamrborges@gmail.com</a>
+    <a class="btn" id="waBtn" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Conversar pelo WhatsApp</a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap ft"><img src="img/logo.png" alt="Plena Vita"><p>Plena Vita · Desenvolvimento Humano · Goiás, atendendo todo o Brasil</p><p>Proposta de site · Agência Raviva</p></div></footer>
+<a class="wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></a>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var WA='https://wa.me/5562981729344?text='+encodeURIComponent('Olá, Elìna! Vi o site da Plena Vita e gostaria de conversar sobre uma palestra ou curso para a minha organização.');
+  document.getElementById('waBtn').href=WA;document.getElementById('wa').href=WA;
+
+  // clientes (do portfólio institucional): e = empresa, i = instituição, p = setor público
+  var C=[['Votorantim Metais','e'],['Votorantim Siderurgia','e'],['BRF (Perdigão)','e'],['Grupo Embalo','e'],['Belcar Caminhões','e'],['UNIMED','e'],['COMIGO','e'],['ITALAC','e'],['Novo Mundo','e'],['Creme Mel','e'],
+    ['Senai/SESI-GO','i'],['Fundação Serra da Mesa','i'],['Correios (DR/GO)','p'],['Caixa Econômica Federal','p'],['Assembleia Legislativa do Estado de Goiás','p'],['Governo do Estado do Tocantins','p'],
+    ['Tribunal de Justiça do Estado do Tocantins','p'],['Ministério Público do Estado de Goiás','p'],['Superintendência Regional do Trabalho e Emprego','p'],['Prefeitura de Uruaçu','p'],['Prefeitura de Goianésia','p'],
+    ['Prefeitura de Campinorte','p'],['Prefeitura de Alto Horizonte','p'],['Prefeitura de Matrinchã','p']];
+  var COR={e:'#F57F00',i:'#2E9A3A',p:'#D6006E'};
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  var og=document.getElementById('og');
+  og.innerHTML=C.map(function(c,k){return '<div class="o rv d'+(k%4)+'" data-t="'+c[1]+'" style="--c:'+COR[c[1]]+'"><i></i>'+esc(c[0])+'</div>';}).join('');
+  var half=Math.ceil(C.length/2);
+  function row(list){var h=list.map(function(c){return '<span style="--c:'+COR[c[1]]+'">'+esc(c[0])+'</span>';}).join('');return h+h;}
+  document.getElementById('mq1').innerHTML=row(C.slice(0,half));document.getElementById('mq2').innerHTML=row(C.slice(half));
+  [].forEach.call(document.querySelectorAll('#flt button'),function(b){b.addEventListener('click',function(){
+    [].forEach.call(document.querySelectorAll('#flt button'),function(x){x.classList.toggle('on',x===b);});
+    var f=b.dataset.f;[].forEach.call(og.children,function(o){o.classList.toggle('off',f!=='*'&&o.dataset.t!==f);});});});
+
+  // crença: palavra por palavra conforme a rolagem
+  var ct=document.getElementById('crenT'),HL=/^(Ser|Humano|potencial|talento|Pessoas|Planeta)/;
+  ct.innerHTML=ct.textContent.trim().split(/\s+/).map(function(w){return '<span class="w'+(HL.test(w)?' hl':'')+'">'+esc(w)+'</span>';}).join(' ');
+  var ws=ct.querySelectorAll('.w');
+
+  // acordeão de palestras
+  [].forEach.call(document.querySelectorAll('.cat button'),function(b){b.addEventListener('click',function(){
+    var cat=b.parentNode,open=!cat.classList.contains('open');
+    [].forEach.call(document.querySelectorAll('.cat'),function(c){c.classList.remove('open');c.querySelector('button').setAttribute('aria-expanded','false');});
+    if(open){cat.classList.add('open');b.setAttribute('aria-expanded','true');}});});
+
+  // brilho dos cursos seguindo o ponteiro
+  [].forEach.call(document.querySelectorAll('.cc'),function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});});
+
+  // revelações + contadores
+  function count(el){var to=+el.dataset.n,t0=performance.now();(function f(t){var k=Math.min(1,(t-t0)/1800);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f);})(t0);}
+  if(reduce){[].forEach.call(document.querySelectorAll('.rv'),function(e){e.classList.add('in');});[].forEach.call(ws,function(w){w.classList.add('on');});document.getElementById('mt').classList.add('in');}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;x.target.classList.add('in');io.unobserve(x.target);
+      [].forEach.call(x.target.querySelectorAll('[data-n]'),count);if(x.target.dataset.n)count(x.target);});},{threshold:.16,rootMargin:'0px 0px -6% 0px'});
+    [].forEach.call(document.querySelectorAll('.rv,#mt,.hero-meta'),function(e){io.observe(e);});
+  }
+
+  // rolagem: nav, botão flutuante, crença, parallax
+  var nav=document.getElementById('nav'),wa=document.getElementById('wa'),band=document.getElementById('bandBg'),qc=document.getElementById('qcImg'),ticking=false;
+  function frame(){ticking=false;var y=scrollY,H=innerHeight;
+    nav.classList.toggle('s',y>30);wa.classList.toggle('on',y>H*.9);
+    var r=ct.getBoundingClientRect(),p=Math.min(1,Math.max(0,(H*.85-r.top)/(r.height+H*.35))),n=Math.round(p*ws.length);
+    for(var i=0;i<ws.length;i++)ws[i].classList.toggle('on',i<n);
+    if(!reduce){var b=band.parentNode.getBoundingClientRect();if(b.bottom>0&&b.top<H)band.style.transform='translateY('+((b.top+b.height/2-H/2)*-.12).toFixed(1)+'px)';
+      var q=qc.getBoundingClientRect();if(q.bottom>0&&q.top<H)qc.style.transform='translateY('+((q.top+q.height/2-H/2)*-.08-40).toFixed(1)+'px)';}
+  }
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(frame);}},{passive:true});frame();
+})();
+</script>
+</body>
+</html>
