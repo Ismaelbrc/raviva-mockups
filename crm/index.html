@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>CRM · Raviva</title>
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* CRM Raviva · os dados chegam CIFRADOS (dados.json); a chave só existe no link (#k=...) e nunca sai do navegador. */
+:root{--noite:#0d0c0a;--n2:#16140f;--n3:#201d17;--linha:#2c2820;--claro:#f4efe4;--mudo:#a59d8e;--sol:#f2a541;--brasa:#c7836e;--musgo:#7fa864;--frio:#7d8fa3;
+ --serif:'Fraunces',Georgia,serif;--type:'Courier Prime','Courier New',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--noite);color:var(--claro);font:400 15px/1.5 var(--serif);-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit}
+.type{font:400 .78rem/1.45 var(--type);letter-spacing:.02em}
+.w{max-width:1280px;margin:0 auto;padding:0 clamp(14px,3.5vw,40px)}
+header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:14px 0 0}
+.hd h1{font:600 1.35rem var(--serif)}.hd h1 span{color:var(--sol)}
+.hd .type{color:var(--mudo);text-align:right}
+.tabs{display:flex;gap:4px;overflow-x:auto;padding:12px 0 0;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tab{all:unset;cursor:pointer;white-space:nowrap;padding:.6rem .95rem .7rem;font:700 .82rem var(--type);color:var(--mudo);border-bottom:2px solid transparent}
+.tab b{font-weight:400;opacity:.7;margin-left:.35rem}
+.tab[aria-selected="true"]{color:var(--sol);border-bottom-color:var(--sol)}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--linha);margin:22px 0 16px}
+.kpi{padding:16px 18px;border-right:1px solid var(--linha)}.kpi:last-child{border:0}
+.kpi b{display:block;font:600 2.1rem/1 var(--serif)}.kpi span{color:var(--mudo)}
+.kpi.sol b{color:var(--sol)}
+.funil{display:flex;height:34px;border:1px solid var(--linha);margin-bottom:8px;overflow:hidden}
+.funil i{display:flex;align-items:center;justify-content:center;font:700 .72rem var(--type);color:#0d0c0a;white-space:nowrap;overflow:hidden;min-width:0}
+.leg{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:22px;color:var(--mudo)}
+.leg span::before{content:"";display:inline-block;width:9px;height:9px;margin-right:6px;background:var(--c)}
+.filtro{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.filtro input{flex:1;min-width:200px;background:var(--n2);border:1px solid var(--linha);color:var(--claro);padding:.6rem .8rem;font:400 .85rem var(--type)}
+.filtro select{background:var(--n2);border:1px solid var(--linha);color:var(--claro);padding:.6rem .6rem;font:400 .85rem var(--type)}
+.lista{display:flex;flex-direction:column;gap:8px;padding-bottom:60px}
+.ficha{display:grid;grid-template-columns:minmax(0,1.3fr) 150px minmax(0,2fr) auto;gap:14px 20px;align-items:start;padding:16px 18px;background:var(--n2);border:1px solid var(--linha);border-left:3px solid var(--c)}
+.f-nome{font:600 1.08rem/1.2 var(--serif)}
+.f-meta{color:var(--mudo);margin-top:.3rem}
+.pill{display:inline-block;padding:.28rem .55rem;font:700 .74rem var(--type);color:#0d0c0a;background:var(--c)}
+.temp{display:block;margin-top:.45rem;color:var(--mudo)}
+.f-txt p{margin-bottom:.35rem}
+.f-txt .prox{color:var(--sol)}
+.f-txt .cli{color:var(--mudo);font-style:italic}
+.f-acts{display:flex;flex-direction:column;gap:6px}
+.f-acts a{text-decoration:none;text-align:center;padding:.45rem .7rem;border:1px solid var(--linha);font:700 .76rem var(--type);white-space:nowrap}
+.f-acts a:hover{border-color:var(--sol);color:var(--sol)}
+.f-acts a.wa{background:var(--sol);color:#0d0c0a;border-color:var(--sol)}
+.vazio{padding:40px;text-align:center;color:var(--mudo);border:1px dashed var(--linha)}
+.cofre{min-height:100vh;display:grid;place-items:center;text-align:center;padding:24px}
+.cofre h1{font:600 2rem var(--serif);margin-bottom:.6rem}.cofre p{color:var(--mudo);max-width:40ch;margin:0 auto}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}.kpi:nth-child(3){border-right:0}.kpi:nth-child(n+4){border-top:1px solid var(--linha)}
+ .ficha{grid-template-columns:1fr auto}.f-txt{grid-column:1/-1}.f-st{grid-column:2;grid-row:1;text-align:right}.f-acts{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}
+ .hd .type{display:none}}
+</style>
+</head>
+<body>
+<div id="app"><div class="cofre"><div><h1>CRM · Raviva</h1><p class="type">Abrindo o cofre…</p></div></div></div>
+<script>
+(async () => {
+  'use strict';
+  const app = document.getElementById('app');
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const cofre = (t, p) => { app.innerHTML = `<div class="cofre"><div><h1>${t}</h1><p class="type">${p}</p></div></div>`; };
+  const k = new URLSearchParams(location.hash.slice(1)).get('k');
+  if (!k) return cofre('CRM · Raviva', 'Este painel é privado. Abra pelo link completo que você recebeu.');
+  let dados;
+  try {
+    const raw = Uint8Array.from(atob(k.replace(/-/g, '+').replace(/_/g, '/') + '='.repeat((4 - k.length % 4) % 4)), c => c.charCodeAt(0));
+    const key = await crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']);
+    const pac = await (await fetch('dados.json?t=' + Date.now(), { cache: 'no-store' })).json();
+    const b = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+    const pt = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b(pac.iv) }, key, b(pac.ct));
+    dados = JSON.parse(new TextDecoder().decode(pt));
+  } catch (e) { return cofre('Link inválido', 'Não foi possível abrir o cofre com este link.'); }
+
+  const COR = { 'Na fila': '#4a453b', 'Abordado': '#7d8fa3', 'Link enviado': '#9fb3c8', 'Respondeu': '#e0c58a', 'Interessado': '#f2a541', 'Ajustando o site': '#f6c36b',
+    'Negociando': '#ffd27a', 'Fechado': '#7fa864', 'Sem resposta': '#5c564b', 'Sem interesse': '#8a5a4c', 'Pediu para parar': '#c7836e' };
+  const ORDEM = ['Negociando', 'Ajustando o site', 'Interessado', 'Respondeu', 'Link enviado', 'Abordado', 'Sem resposta', 'Na fila', 'Fechado', 'Sem interesse', 'Pediu para parar'];
+  const FUNIL = ['Abordado', 'Link enviado', 'Respondeu', 'Interessado', 'Ajustando o site', 'Negociando', 'Fechado'];
+  const L = dados.leads;
+  const segs = ['Todos', ...[...new Set(L.map(l => l.segmento))]];
+  let seg = (() => { try { return localStorage.getItem('rv-crm-seg') || 'Todos'; } catch (_) { return 'Todos'; } })();
+  if (!segs.includes(seg)) seg = 'Todos';
+  let busca = '', fst = '';
+  const dt = s => s ? s.slice(8, 10) + '/' + s.slice(5, 7) + ' ' + s.slice(11, 16) : '—';
+  const respondeu = l => l.recebidas > 0;
+
+  function render() {
+    const sub = L.filter(l => seg === 'Todos' || l.segmento === seg);
+    const abord = sub.filter(l => l.status !== 'Na fila');
+    const resp = abord.filter(respondeu).length;
+    const quentes = sub.filter(l => ['Interessado', 'Ajustando o site', 'Negociando'].includes(l.status)).length;
+    const fech = sub.filter(l => l.status === 'Fechado').length;
+    const fila = sub.filter(l => l.status === 'Na fila').length;
+    const cont = {}; sub.forEach(l => cont[l.status] = (cont[l.status] || 0) + 1);
+    const tot = sub.length || 1;
+    const lista = sub.filter(l => (!fst || l.status === fst) && (!busca || (l.nome + ' ' + l.cidade + ' ' + l.resumo).toLowerCase().includes(busca)))
+      .sort((a, b) => ORDEM.indexOf(a.status) - ORDEM.indexOf(b.status) || (b.ultima_em || '').localeCompare(a.ultima_em || ''));
+    app.innerHTML = `
+<header><div class="w"><div class="hd"><h1>CRM <span>·</span> Raviva</h1><p class="type">Atualizado ${esc(dt(dados.gerado_em))}${dados.ia ? ' · análise por IA' : ' · análise por regras'}</p></div>
+<nav class="tabs" role="tablist">${segs.map(s => `<button class="tab" role="tab" aria-selected="${s === seg}" data-s="${esc(s)}">${esc(s)}<b>${s === 'Todos' ? L.length : L.filter(l => l.segmento === s).length}</b></button>`).join('')}</nav></div></header>
+<main class="w">
+<section class="kpis">
+ <div class="kpi"><b>${abord.length}</b><span class="type">abordados</span></div>
+ <div class="kpi"><b>${resp}</b><span class="type">responderam · ${abord.length ? Math.round(100 * resp / abord.length) : 0}%</span></div>
+ <div class="kpi sol"><b>${quentes}</b><span class="type">interessados</span></div>
+ <div class="kpi"><b>${fech}</b><span class="type">fechados</span></div>
+ <div class="kpi"><b>${fila}</b><span class="type">na fila de envio</span></div>
+</section>
+<div class="funil" aria-label="Distribuição por status">${ORDEM.filter(s => cont[s]).map(s => `<i style="background:${COR[s]};width:${100 * cont[s] / tot}%" title="${esc(s)}: ${cont[s]}">${cont[s]}</i>`).join('')}</div>
+<div class="leg type">${ORDEM.filter(s => cont[s]).map(s => `<span style="--c:${COR[s]}">${esc(s)} ${cont[s]}</span>`).join('')}</div>
+<div class="filtro"><input id="q" type="search" placeholder="Buscar negócio, cidade, assunto…" value="${esc(busca)}">
+<select id="st"><option value="">Todos os status</option>${ORDEM.filter(s => cont[s]).map(s => `<option ${s === fst ? 'selected' : ''}>${esc(s)}</option>`).join('')}</select></div>
+<section class="lista">${lista.length ? lista.map(l => `
+ <article class="ficha" style="--c:${COR[l.status] || '#444'}">
+  <div><div class="f-nome">${esc(l.nome)}</div><div class="f-meta type">${esc(l.segmento)} · ${esc(l.cidade || '—')}${l.nota ? ' · ' + String(l.nota).replace('.', ',') + '★ (' + l.avaliacoes + ')' : ''}<br>
+   abordagem ${esc(dt(l.abordado_em))}${l.link_em ? ' · link ' + esc(dt(l.link_em)) : ''}<br>última msg ${esc(dt(l.ultima_em))} · ${l.recebidas} do cliente</div></div>
+  <div class="f-st"><span class="pill">${esc(l.status)}</span>${l.temperatura ? `<span class="temp type">${esc(l.temperatura)}</span>` : ''}</div>
+  <div class="f-txt">${l.resumo ? `<p>${esc(l.resumo)}</p>` : ''}${l.proximo_passo ? `<p class="prox type">→ ${esc(l.proximo_passo)}</p>` : ''}${l.ultima_do_cliente ? `<p class="cli">“${esc(l.ultima_do_cliente)}”</p>` : (l.resumo ? '' : '<p class="type" style="color:var(--mudo)">Sem resposta do cliente ainda.</p>')}</div>
+  <div class="f-acts"><a class="wa" href="https://wa.me/${esc(l.num)}" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="${esc(l.proposta)}" target="_blank" rel="noopener noreferrer">Proposta</a></div>
+ </article>`).join('') : '<div class="vazio type">Nada por aqui com esse filtro.</div>'}</section>
+</main>`;
+    app.querySelectorAll('.tab').forEach(b => b.onclick = () => { seg = b.dataset.s; fst = ''; try { localStorage.setItem('rv-crm-seg', seg); } catch (_) { /* sem storage: ok */ } render(); });
+    const q = app.querySelector('#q'); q.oninput = () => { busca = q.value.toLowerCase(); const p = q.selectionStart; render(); const n = app.querySelector('#q'); n.focus(); n.setSelectionRange(p, p); };
+    app.querySelector('#st').onchange = e => { fst = e.target.value; render(); };
+  }
+  render();
+})();
+</script>
+</body>
+</html>
