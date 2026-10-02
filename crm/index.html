@@ -120,7 +120,7 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
 <section class="lista">${lista.length ? lista.map(l => `
  <article class="ficha" style="--c:${COR[l.status] || '#444'}">
   <div><div class="f-nome">${esc(l.nome)}</div><div class="f-meta type">${esc(l.segmento)} · ${esc(l.cidade || '—')}${l.nota ? ' · ' + String(l.nota).replace('.', ',') + '★ (' + l.avaliacoes + ')' : ''}<br>
-   abordagem ${esc(dt(l.abordado_em))}${l.link_em ? ' · link ' + esc(dt(l.link_em)) : ''}<br>última msg ${esc(dt(l.ultima_em))} · ${l.recebidas} do cliente</div></div>
+   abordagem ${esc(dt(l.abordado_em))}${l.link_em ? ' · link ' + esc(dt(l.link_em)) : ''}<br>última msg ${esc(dt(l.ultima_em))} · ${l.recebidas} do cliente${l.auto ? ' · <span style="color:var(--brasa)">resposta automática</span>' : ''}</div></div>
   <div class="f-st"><span class="pill">${esc(l.status)}</span>${l.temperatura ? `<span class="temp type">${esc(l.temperatura)}</span>` : ''}</div>
   <div class="f-txt">${l.resumo ? `<p>${esc(l.resumo)}</p>` : ''}${l.proximo_passo ? `<p class="prox type">→ ${esc(l.proximo_passo)}</p>` : ''}${l.ultima_do_cliente ? `<p class="cli">“${esc(l.ultima_do_cliente)}”</p>` : (l.resumo ? '' : '<p class="type" style="color:var(--mudo)">Sem resposta do cliente ainda.</p>')}</div>
   <div class="f-acts"><a class="wa" href="https://wa.me/${esc(l.num)}" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="${esc(l.proposta)}" target="_blank" rel="noopener noreferrer">Proposta</a></div>
