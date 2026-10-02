@@ -131,3 +131,7 @@ h1 em{font-style:italic;font-weight:400;color:var(--brasa2)}
 }
 html:not(.js) .stage{height:auto}html:not(.js) .stick{position:relative;height:auto}
 html:not(.js) .paper,html:not(.js) .fire{position:relative;min-height:100svh}html:not(.js) .fire{clip-path:none}
+
+/* troca de caso: texto acompanha o celular */
+.caso .swap{transition:opacity .26s ease,transform .26s ease}.caso .swap.out{opacity:0;transform:translateY(6px)}
+.antes.swap{transition:opacity .26s ease,transform .26s ease}.antes.swap.out{transform:rotate(-1deg) translateY(6px)}

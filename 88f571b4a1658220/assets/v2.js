@@ -104,6 +104,14 @@
   $$('.tabs button').forEach(b => b.addEventListener('click', () => {
     $$('.tabs button').forEach(x => x.setAttribute('aria-selected', String(x === b)));
     gen++; fr.src = b.dataset.src; phone.href = b.dataset.href; busy = false;
+    const d = b.dataset, sw = $$('.caso .swap');
+    sw.forEach(e => e.classList.add('out'));
+    setTimeout(() => {
+      $('#cTit').textContent = d.tit; $('#cDep').textContent = d.dep;
+      $('#cNome').textContent = `Ficha · ${d.nome} · ${d.setor}`; $('#cNota').textContent = `${d.nota} ★★★★★ (${d.n})`;
+      $('#cCanalK').textContent = d.ck; $('#cCanalV').textContent = d.cv;
+      sw.forEach(e => e.classList.remove('out'));
+    }, 260);
     fr.addEventListener('load', () => { if (visP && !reduce && !busy) loop(); }, { once: true });
   }));
 })();
