@@ -26,7 +26,7 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
 .tabs{display:flex;gap:4px;overflow-x:auto;padding:12px 0 0;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
 .tab{all:unset;cursor:pointer;white-space:nowrap;padding:.6rem .95rem .7rem;font:700 .82rem var(--type);color:var(--mudo);border-bottom:2px solid transparent}
 .tab b{font-weight:400;opacity:.7;margin-left:.35rem}
-.tab[aria-selected="true"]{color:var(--sol);border-bottom-color:var(--sol)}
+.tab.vz{opacity:.55}.tab[aria-selected="true"]{color:var(--sol);border-bottom-color:var(--sol)}
 .kpis{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--linha);margin:22px 0 16px}
 .kpi{padding:16px 18px;border-right:1px solid var(--linha)}.kpi:last-child{border:0}
 .kpi b{display:block;font:600 2.1rem/1 var(--serif)}.kpi span{color:var(--mudo)}
@@ -84,7 +84,7 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
   const ORDEM = ['Negociando', 'Ajustando o site', 'Interessado', 'Respondeu', 'Link enviado', 'Abordado', 'Sem resposta', 'Na fila', 'Fechado', 'Sem interesse', 'Pediu para parar'];
   const FUNIL = ['Abordado', 'Link enviado', 'Respondeu', 'Interessado', 'Ajustando o site', 'Negociando', 'Fechado'];
   const L = dados.leads;
-  const segs = ['Todos', ...[...new Set(L.map(l => l.segmento))]];
+  const segs = ['Todos', ...(dados.segmentos || [...new Set(L.map(l => l.segmento))])];
   let seg = (() => { try { return localStorage.getItem('rv-crm-seg') || 'Todos'; } catch (_) { return 'Todos'; } })();
   if (!segs.includes(seg)) seg = 'Todos';
   let busca = '', fst = '';
@@ -104,7 +104,7 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
       .sort((a, b) => ORDEM.indexOf(a.status) - ORDEM.indexOf(b.status) || (b.ultima_em || '').localeCompare(a.ultima_em || ''));
     app.innerHTML = `
 <header><div class="w"><div class="hd"><h1>CRM <span>·</span> Raviva</h1><p class="type">Atualizado ${esc(dt(dados.gerado_em))}${dados.ia ? ' · análise por IA' : ' · análise por regras'}</p></div>
-<nav class="tabs" role="tablist">${segs.map(s => `<button class="tab" role="tab" aria-selected="${s === seg}" data-s="${esc(s)}">${esc(s)}<b>${s === 'Todos' ? L.length : L.filter(l => l.segmento === s).length}</b></button>`).join('')}</nav></div></header>
+<nav class="tabs" role="tablist">${segs.map(s => `<button class="tab${s !== 'Todos' && !L.some(l => l.segmento === s) ? ' vz' : ''}" role="tab" aria-selected="${s === seg}" data-s="${esc(s)}">${esc(s)}<b>${s === 'Todos' ? L.length : L.filter(l => l.segmento === s).length}</b></button>`).join('')}</nav></div></header>
 <main class="w">
 <section class="kpis">
  <div class="kpi"><b>${abord.length}</b><span class="type">abordados</span></div>
@@ -124,7 +124,7 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
   <div class="f-st"><span class="pill">${esc(l.status)}</span>${l.temperatura ? `<span class="temp type">${esc(l.temperatura)}</span>` : ''}</div>
   <div class="f-txt">${l.resumo ? `<p>${esc(l.resumo)}</p>` : ''}${l.proximo_passo ? `<p class="prox type">→ ${esc(l.proximo_passo)}</p>` : ''}${l.ultima_do_cliente ? `<p class="cli">“${esc(l.ultima_do_cliente)}”</p>` : (l.resumo ? '' : '<p class="type" style="color:var(--mudo)">Sem resposta do cliente ainda.</p>')}</div>
   <div class="f-acts"><a class="wa" href="https://wa.me/${esc(l.num)}" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="${esc(l.proposta)}" target="_blank" rel="noopener noreferrer">Proposta</a></div>
- </article>`).join('') : '<div class="vazio type">Nada por aqui com esse filtro.</div>'}</section>
+ </article>`).join('') : (sub.length ? '<div class="vazio type">Nada por aqui com esse filtro.</div>' : `<div class="vazio"><p style="font:600 1.3rem var(--serif);margin-bottom:.4rem">${esc(seg)}</p><p class="type">Segmento planejado. Ainda sem abordagens: quando o primeiro lote sair, ele aparece aqui.</p></div>`)}</section>
 </main>`;
     app.querySelectorAll('.tab').forEach(b => b.onclick = () => { seg = b.dataset.s; fst = ''; try { localStorage.setItem('rv-crm-seg', seg); } catch (_) { /* sem storage: ok */ } render(); });
     const q = app.querySelector('#q'); q.oninput = () => { busca = q.value.toLowerCase(); const p = q.selectionStart; render(); const n = app.querySelector('#q'); n.focus(); n.setSelectionRange(p, p); };
