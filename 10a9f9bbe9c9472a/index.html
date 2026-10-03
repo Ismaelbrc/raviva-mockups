@@ -6,22 +6,25 @@
 a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .fx{background:#000;color:#bdb6a6;font:400 11px/1.3 system-ui,sans-serif;text-align:center;padding:8px 12px}.fx b{color:#fff}
 .rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
-/* logo do Irmão Cláudio */
-.lgc{display:inline-flex;align-items:center;gap:.6em;font-size:var(--lgs,16px);line-height:1}
-.lgc .mk{display:grid;place-items:center;width:2.3em;height:2.3em;border:2px solid currentColor;border-radius:50%;font:400 .9em 'Archivo Black',sans-serif;letter-spacing:-.04em}
-.lgc .tx{display:flex;flex-direction:column;gap:.3em}.lgc b{font:400 1.25em 'Archivo Black',sans-serif;letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap}
-.lgc small{font:600 .62em/1 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
-header .lgc{color:#fff}.top .lgc{color:#111}
+/* logo do Irmão Cláudio (recriado da fachada) */
+header .lgc,.top .lgc{font-size:19px!important}
+.lgc{display:inline-flex;align-items:center;gap:.5em;font-size:var(--lgs,16px);line-height:.95}
+.lgc .gt{width:1.7em;height:auto;flex:0 0 auto}.lgc .gt path{fill:#F7941D}.lgc .gt .hl{fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round}
+.lgc .tx{display:flex;flex-direction:column;font-family:'Archivo Black',sans-serif;font-style:italic;white-space:nowrap}
+.lgc b{font-weight:400;font-size:1.3em;letter-spacing:-.02em;color:#fff}.lgc b i{font-size:.55em;font-style:normal;font-family:system-ui,sans-serif;font-weight:700}
+.lgc em{font-size:1.05em;color:#F7941D;letter-spacing:-.01em}
+.top .lgc b{color:#1d1d22}.top .lgc em,.top .lgc .gt path{color:#1d1d22;fill:#1d1d22}.top .lgc em{color:#1d1d22}.top .lgc .gt .hl{fill:none;stroke:#F7941D}
+
 /* (resto herdado, sem uso aqui) */
 .lg{display:inline-flex;align-items:center;gap:.55em;font-size:var(--lgs,16px);line-height:1}
-.lg .drop{width:1.9em;height:auto;flex:0 0 auto}.lg .drop path{fill:#E5261F;stroke:#000;stroke-width:2.5}.lg .drop .hl{fill:none;stroke:#fff6;stroke-width:2.5;stroke-linecap:round}
+.lg .drop{width:1.9em;height:auto;flex:0 0 auto}.lg .drop path{fill:#F7941D;stroke:#000;stroke-width:2.5}.lg .drop .hl{fill:none;stroke:#fff6;stroke-width:2.5;stroke-linecap:round}
 .lg-t{display:flex;flex-direction:column;font-family:'Archivo Black',sans-serif;font-style:italic;text-transform:uppercase;transform:skewX(-6deg)}
 .lg-t i{font-style:normal;font-size:.62em;letter-spacing:.02em}.lg-t b{font-weight:400;font-size:1.2em;letter-spacing:-.01em;white-space:nowrap}
-.lg-t em{align-self:flex-start;display:inline-flex;align-items:center;gap:.4em;margin-top:.18em;padding:.18em .5em .2em .3em;background:#E5261F;color:#000;font-style:normal;font-size:.62em;text-transform:none}
-.chk{width:1.6em;height:.9em;background:conic-gradient(#000 25%,#E5261F 0 50%,#000 0 75%,#E5261F 0) 0 0/.45em .45em}
+.lg-t em{align-self:flex-start;display:inline-flex;align-items:center;gap:.4em;margin-top:.18em;padding:.18em .5em .2em .3em;background:#F7941D;color:#000;font-style:normal;font-size:.62em;text-transform:none}
+.chk{width:1.6em;height:.9em;background:conic-gradient(#000 25%,#F7941D 0 50%,#000 0 75%,#F7941D 0) 0 0/.45em .45em}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 
-:root{--y:#E5261F;--k:#0b0b0a;--g:#8f8a80}
+:root{--y:#F7941D;--k:#0b0b0a;--g:#8f8a80}
 body{background:var(--k);color:#f2efe6;font:400 17px/1.6 'Archivo',sans-serif}
 .cond{font-family:'Archivo';font-stretch:62%;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:-.01em}
 .mono{font:500 .76rem/1.4 'JetBrains Mono',monospace;letter-spacing:.05em;text-transform:uppercase}
@@ -42,7 +45,7 @@ header .lg-t,header .lg-t b{color:#fff}
 .tel{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #262522}
 .tel div{padding:1.4rem clamp(14px,2vw,28px);border-right:1px solid #262522}.tel div:last-child{border:0}
 .tel b{display:block;font-size:clamp(2.2rem,5vw,4rem);line-height:1;color:var(--y)}.tel span{color:#cfc9bd}
-.chkband{height:6px;background:var(--y)}
+.chkband{height:14px;background:repeating-linear-gradient(-45deg,var(--y) 0 14px,#111 14px 24px)}
 .sv{padding:clamp(64px,9vw,120px) 0}
 .sv .w{display:grid;grid-template-columns:.8fr 1.2fr;gap:3rem;align-items:start}.sv h2{font-size:clamp(3rem,7vw,6rem);line-height:.86;position:sticky;top:100px}.sv h2 em{color:var(--y);font-style:inherit}
 .lap{display:grid;grid-template-columns:90px 1fr;gap:.2rem 1.2rem;align-items:baseline;padding:1.3rem 0;border-top:1px solid #2a2925}.lap p{grid-column:2}
@@ -60,7 +63,7 @@ table{width:100%;border-collapse:collapse;margin:1.6rem 0}td{padding:.9rem 0;bor
 .addr{font-size:1.3rem;font-weight:700}
 @media (max-width:760px){.sv .w{grid-template-columns:1fr}.sv h2{position:static}.tel{grid-template-columns:1fr 1fr}.tel div:nth-child(2){border-right:0}.tel div:nth-child(-n+2){border-bottom:1px solid #262522}
 .lap{grid-template-columns:1fr;gap:.3rem}.split{grid-template-columns:1fr}.split img{height:56svh}.qg{grid-template-columns:1fr}.box .g{grid-template-columns:1fr}header .cta span{display:none}}
-</style></head><body><div class="fx">Proposta de site criada pela <b>Agência Raviva</b> para a Troca de Óleo Irmão Cláudio</div><header><div class="w"><span class="lgc"><span class="mk">IC</span><span class="tx"><b>Irmão Cláudio</b><small>Troca de Óleo · Vila Regina</small></span></span><a class="cta" href="https://wa.me/5562984481977?text=Ol%C3%A1%2C%20Cl%C3%A1udio%21%20Vi%20o%20site%20e%20quero%20agendar%20uma%20troca%20de%20%C3%B3leo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span>Agendar</span></a></div></header>
+</style></head><body><div class="fx">Proposta de site criada pela <b>Agência Raviva</b> para a Troca de Óleo Irmão Cláudio</div><header><div class="w"><span class="lgc"><svg class="gt" viewBox="0 0 40 54" aria-hidden="true"><path d="M20 2C13 15 3 25 3 36a17 17 0 0 0 34 0C37 25 27 15 20 2z"/><path class="hl" d="M10 36c0 6 4 9 8 10"/></svg><span class="tx"><b>Troca <i>de</i> Óleo</b><em>Irmão Cláudio</em></span></span><a class="cta" href="https://wa.me/5562984481977?text=Ol%C3%A1%2C%20Cl%C3%A1udio%21%20Vi%20o%20site%20e%20quero%20agendar%20uma%20troca%20de%20%C3%B3leo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span>Agendar</span></a></div></header>
 <section class="hero"><img src="img/13065693.jpg" alt="Óleo novo sendo colocado no motor"><div class="w"><h1 class="cond">Troca<span>de óleo</span></h1>
 <div class="row"><p>Na Troca de Óleo Irmão Cláudio, na Vila Regina, em Goiânia, você acompanha a troca do começo ao fim. O Cláudio explica cada etapa e mostra o filtro velho saindo e o novo entrando, para você saber exatamente o que foi feito no seu carro.</p><a class="cta" href="https://wa.me/5562984481977?text=Ol%C3%A1%2C%20Cl%C3%A1udio%21%20Vi%20o%20site%20e%20quero%20agendar%20uma%20troca%20de%20%C3%B3leo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span>Chamar no WhatsApp</span></a></div></div></section>
 <div class="tel cond"><div><b>4,9</b><span class="mono">Nota no Google</span></div><div><b>147</b><span class="mono">Avaliações</span></div><div><b>10+</b><span class="mono">Anos de clientes fiéis</span></div><div><b>07:00</b><span class="mono">Abre de segunda a sábado</span></div></div>

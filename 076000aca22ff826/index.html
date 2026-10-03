@@ -6,29 +6,32 @@
 a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
 .fx{background:#000;color:#bdb6a6;font:400 11px/1.3 system-ui,sans-serif;text-align:center;padding:8px 12px}.fx b{color:#fff}
 .rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
-/* logo do Irmão Cláudio */
-.lgc{display:inline-flex;align-items:center;gap:.6em;font-size:var(--lgs,16px);line-height:1}
-.lgc .mk{display:grid;place-items:center;width:2.3em;height:2.3em;border:2px solid currentColor;border-radius:50%;font:400 .9em 'Archivo Black',sans-serif;letter-spacing:-.04em}
-.lgc .tx{display:flex;flex-direction:column;gap:.3em}.lgc b{font:400 1.25em 'Archivo Black',sans-serif;letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap}
-.lgc small{font:600 .62em/1 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
-header .lgc{color:#fff}.top .lgc{color:#111}
+/* logo do Irmão Cláudio (recriado da fachada) */
+header .lgc,.top .lgc{font-size:19px!important}
+.lgc{display:inline-flex;align-items:center;gap:.5em;font-size:var(--lgs,16px);line-height:.95}
+.lgc .gt{width:1.7em;height:auto;flex:0 0 auto}.lgc .gt path{fill:#F7941D}.lgc .gt .hl{fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round}
+.lgc .tx{display:flex;flex-direction:column;font-family:'Archivo Black',sans-serif;font-style:italic;white-space:nowrap}
+.lgc b{font-weight:400;font-size:1.3em;letter-spacing:-.02em;color:#fff}.lgc b i{font-size:.55em;font-style:normal;font-family:system-ui,sans-serif;font-weight:700}
+.lgc em{font-size:1.05em;color:#F7941D;letter-spacing:-.01em}
+.top .lgc b{color:#1d1d22}.top .lgc em,.top .lgc .gt path{color:#1d1d22;fill:#1d1d22}.top .lgc em{color:#1d1d22}.top .lgc .gt .hl{fill:none;stroke:#F7941D}
+
 /* (resto herdado, sem uso aqui) */
 .lg{display:inline-flex;align-items:center;gap:.55em;font-size:var(--lgs,16px);line-height:1}
-.lg .drop{width:1.9em;height:auto;flex:0 0 auto}.lg .drop path{fill:#E5261F;stroke:#000;stroke-width:2.5}.lg .drop .hl{fill:none;stroke:#fff6;stroke-width:2.5;stroke-linecap:round}
+.lg .drop{width:1.9em;height:auto;flex:0 0 auto}.lg .drop path{fill:#F7941D;stroke:#000;stroke-width:2.5}.lg .drop .hl{fill:none;stroke:#fff6;stroke-width:2.5;stroke-linecap:round}
 .lg-t{display:flex;flex-direction:column;font-family:'Archivo Black',sans-serif;font-style:italic;text-transform:uppercase;transform:skewX(-6deg)}
 .lg-t i{font-style:normal;font-size:.62em;letter-spacing:.02em}.lg-t b{font-weight:400;font-size:1.2em;letter-spacing:-.01em;white-space:nowrap}
-.lg-t em{align-self:flex-start;display:inline-flex;align-items:center;gap:.4em;margin-top:.18em;padding:.18em .5em .2em .3em;background:#E5261F;color:#000;font-style:normal;font-size:.62em;text-transform:none}
-.chk{width:1.6em;height:.9em;background:conic-gradient(#000 25%,#E5261F 0 50%,#000 0 75%,#E5261F 0) 0 0/.45em .45em}
+.lg-t em{align-self:flex-start;display:inline-flex;align-items:center;gap:.4em;margin-top:.18em;padding:.18em .5em .2em .3em;background:#F7941D;color:#000;font-style:normal;font-size:.62em;text-transform:none}
+.chk{width:1.6em;height:.9em;background:conic-gradient(#000 25%,#F7941D 0 50%,#000 0 75%,#F7941D 0) 0 0/.45em .45em}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
 
-:root{--y:#D9A521;--k:#050505;--g:#9a9387}
+:root{--y:#F7941D;--k:#050505;--g:#9a9387}
 body{background:var(--k);color:#efe9dc;font:400 17px/1.7 'Manrope',sans-serif}
 .serif{font-family:'Bodoni Moda',serif;font-weight:400}
 .w{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
 header{position:absolute;left:0;right:0;z-index:5}
 header .w{display:flex;justify-content:space-between;align-items:center;height:84px;--lgs:12px}
-.link{font:600 .78rem 'Manrope';letter-spacing:.16em;text-transform:uppercase;color:var(--y);border-bottom:1px solid #d9a52166;padding-bottom:.3rem}.solid{display:inline-flex;align-items:center;gap:.55rem;background:var(--y);color:#000;padding:.75rem 1.1rem;font:700 .82rem 'Manrope';letter-spacing:.06em;text-transform:uppercase}.solid svg{width:17px}
-.chkband{height:6px;background:var(--y)}
+.link{font:600 .78rem 'Manrope';letter-spacing:.16em;text-transform:uppercase;color:var(--y);border-bottom:1px solid #f7941d66;padding-bottom:.3rem}.solid{display:inline-flex;align-items:center;gap:.55rem;background:var(--y);color:#000;padding:.75rem 1.1rem;font:700 .82rem 'Manrope';letter-spacing:.06em;text-transform:uppercase}.solid svg{width:17px}
+.chkband{height:14px;background:repeating-linear-gradient(-45deg,var(--y) 0 14px,#111 14px 24px)}
 .hero{position:relative;height:100svh;min-height:640px;overflow:hidden}
 .hero img{position:absolute;top:0;right:0;width:62%;height:100%;object-fit:cover;object-position:60% 40%;filter:brightness(.72) contrast(1.25) saturate(1.15);animation:pour 18s ease-in-out infinite alternate}
 @keyframes pour{to{transform:scale(1.08) translateY(-1.5%)}}
@@ -59,7 +62,7 @@ header .w{display:flex;justify-content:space-between;align-items:center;height:8
 .btn:hover{background:var(--y);color:#000}.btn svg{width:18px}.btn.solid{background:var(--y);color:#000;border-color:var(--y)}
 table{width:100%;border-collapse:collapse}td{padding:.8rem 0;border-bottom:1px solid #1d1b18;color:#cfc8b8}td:last-child{text-align:right}
 @media (max-width:760px){.it,.duo2,.rv3,.end .g{grid-template-columns:1fr}.hero img{width:100%;height:58%}.hero:after{background:linear-gradient(0deg,#050505 45%,#05050500 75%)}}
-</style></head><body><div class="fx">Proposta de site criada pela <b>Agência Raviva</b> para a Troca de Óleo Irmão Cláudio</div><header><div class="w"><span class="lgc"><span class="mk">IC</span><span class="tx"><b>Irmão Cláudio</b><small>Troca de Óleo · Vila Regina</small></span></span><a class="solid" href="https://wa.me/5562984481977?text=Ol%C3%A1%2C%20Cl%C3%A1udio%21%20Vi%20o%20site%20e%20quero%20agendar%20uma%20troca%20de%20%C3%B3leo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Agendar</a></div></header>
+</style></head><body><div class="fx">Proposta de site criada pela <b>Agência Raviva</b> para a Troca de Óleo Irmão Cláudio</div><header><div class="w"><span class="lgc"><svg class="gt" viewBox="0 0 40 54" aria-hidden="true"><path d="M20 2C13 15 3 25 3 36a17 17 0 0 0 34 0C37 25 27 15 20 2z"/><path class="hl" d="M10 36c0 6 4 9 8 10"/></svg><span class="tx"><b>Troca <i>de</i> Óleo</b><em>Irmão Cláudio</em></span></span><a class="solid" href="https://wa.me/5562984481977?text=Ol%C3%A1%2C%20Cl%C3%A1udio%21%20Vi%20o%20site%20e%20quero%20agendar%20uma%20troca%20de%20%C3%B3leo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>Agendar</a></div></header>
 <section class="hero"><img src="img/13065697.jpg" alt="Óleo dourado sendo colocado no motor"><div class="w"><h1 class="serif">A troca de óleo que você <i>acompanha</i> do começo ao fim.</h1>
 <p>Na Troca de Óleo Irmão Cláudio, na Vila Regina, em Goiânia, você acompanha a troca do começo ao fim. O Cláudio explica cada etapa e mostra o filtro velho saindo e o novo entrando, para você saber exatamente o que foi feito no seu carro. Nota 4,9 em 147 avaliações no Google.</p></div></section>
 <section class="quiet"><div class="w"><p class="serif rv">Aqui você é atendido com calma, toma um café feito na hora e vê <i>tudo</i> o que foi trocado no seu carro.</p><small>Vila Regina · Goiânia</small></div></section>
