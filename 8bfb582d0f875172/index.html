@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Proposta de site — Leonardo Auto Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ac:#2F7DE1;--ac2:#7fb3ff;--bg:#05060a;--tx:#f4f5f8;--mu:#9aa0ae;--glass:rgba(255,255,255,.065);--line:rgba(255,255,255,.14)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.5;overflow-x:hidden}
+h1,h2,h3,.cond{font-family:'Barlow Condensed',Impact,sans-serif;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+.skew{transform:skewX(-9deg)}.unskew{transform:skewX(9deg);display:block}
+.faixa{background:#000;color:#cfd2d8;font-size:11px;text-align:center;padding:7px 12px;position:relative;z-index:50}
+.faixa b{color:var(--ac)}
+/* ===== HERO ===== */
+.hero{position:relative;min-height:1020px;display:flex;flex-direction:column;justify-content:space-between;isolation:isolate;overflow:hidden}
+.hero .bg{position:absolute;left:-4%;right:-4%;top:0;height:66%;background:url(img/4116173.jpg) center/cover no-repeat;z-index:-4;animation:push 16s ease-out both}
+.hero .shade{position:absolute;inset:0;z-index:-3;background:
+ linear-gradient(180deg,rgba(5,6,10,.78) 0%,rgba(5,6,10,0) 20%,rgba(5,6,10,0) 42%,rgba(5,6,10,.85) 60%,var(--bg) 68%),
+ radial-gradient(80% 36% at 12% 66%,color-mix(in srgb,var(--ac) 40%,transparent),transparent 70%),
+ radial-gradient(60% 30% at 100% 14%,color-mix(in srgb,var(--ac2) 30%,transparent),transparent 70%)}
+.hero .lines{position:absolute;inset:0;z-index:-2;opacity:.5;mix-blend-mode:screen;background:
+ repeating-linear-gradient(103deg,transparent 0 46px,color-mix(in srgb,var(--ac) 40%,transparent) 46px 47px,transparent 47px 110px);animation:streak 3.2s linear infinite;-webkit-mask-image:linear-gradient(180deg,transparent,#000 40%,transparent);mask-image:linear-gradient(180deg,transparent,#000 40%,transparent)}
+.hero .grain{position:absolute;inset:0;z-index:-1;opacity:.12;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:3px 3px;mix-blend-mode:overlay}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;max-width:1100px;margin:0 auto;width:100%}
+.logo{font-size:22px;font-weight:800;font-style:italic;display:flex;align-items:center;gap:9px;letter-spacing:.5px}
+.logo i{width:30px;height:22px;background:linear-gradient(135deg,var(--ac),var(--ac2));clip-path:polygon(22% 0,100% 0,78% 100%,0 100%);display:inline-block;box-shadow:0 0 18px var(--ac)}
+.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:999px;padding:7px 13px;font-size:13px;font-weight:600}
+.live{width:8px;height:8px;border-radius:50%;background:#2ee66b;animation:pulse 2s infinite}
+.hbody{padding:0 18px 24px;max-width:1100px;margin:0 auto;width:100%}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--ac);font-weight:700;font-size:11.5px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.eyebrow:before{content:"";flex:none;width:30px;height:3px;background:var(--ac);box-shadow:0 0 14px var(--ac)}
+h1{font-size:clamp(40px,10.8vw,100px);line-height:.88;font-weight:800;font-style:italic;margin-bottom:16px;text-shadow:0 6px 40px rgba(0,0,0,.6);letter-spacing:-.5px}
+h1 em{font-style:italic;display:block;color:transparent;-webkit-text-stroke:2px var(--ac);text-shadow:0 0 30px color-mix(in srgb,var(--ac) 60%,transparent)}
+.sub{color:#dfe2e8;font-size:16px;max-width:36ch;margin-bottom:22px}
+.btns{display:flex;flex-direction:column;gap:11px;margin-bottom:20px}
+.b{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:800;font-size:16px;padding:16px 22px;text-transform:uppercase;letter-spacing:.8px;clip-path:polygon(4% 0,100% 0,96% 100%,0 100%);transition:.2s}
+.b svg{width:20px;height:20px}
+.wa{background:linear-gradient(90deg,#25d366,#1fe07a);color:#03210e;animation:glow 2.4s infinite}
+.sec{background:var(--glass);border:0;color:#fff;box-shadow:inset 0 0 0 1px var(--line)}
+/* HUD */
+.hud{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;border:1px solid var(--line);background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.02));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:20px;padding:12px 18px 12px 12px;max-width:440px}
+.gauge{position:relative;width:104px;height:104px}.gauge svg{width:100%;height:100%;transform:rotate(135deg)}
+.gauge .n{position:absolute;inset:0;display:grid;place-content:center;text-align:center;font-family:'Barlow Condensed';font-weight:800;font-size:38px;line-height:.9}
+.gauge .n small{font-family:Inter;font-weight:600;font-size:9px;color:var(--mu);letter-spacing:1.4px;margin-top:6px}
+.hud .stars{color:#ffc43d;letter-spacing:3px;font-size:17px}.hud p{color:var(--mu);font-size:13px}.hud b{color:#fff}
+/* TICKER */
+.mq{overflow:hidden;background:linear-gradient(90deg,var(--ac),var(--ac2));color:#06070a;transform:skewY(-1.2deg);margin:6px 0 0;box-shadow:0 0 40px color-mix(in srgb,var(--ac) 40%,transparent)}
+.mq div{display:flex;width:max-content;white-space:nowrap;padding:12px 0;animation:mq 26s linear infinite;font-family:'Barlow Condensed';font-weight:800;font-style:italic;font-size:21px;text-transform:uppercase;letter-spacing:1.6px}
+.mq span{padding:0 22px}.mq span:after{content:"//";margin-left:44px;opacity:.5}
+/* SECTIONS */
+section{padding:56px 18px 4px;max-width:1100px;margin:0 auto}
+.kick{display:flex;align-items:center;gap:10px;color:var(--ac);font-weight:700;font-size:12px;letter-spacing:2.6px;text-transform:uppercase;margin-bottom:8px}
+.logo:has(.lgx) i{display:none}.logo .lgx{font-style:normal}
+.logo img.lg{height:40px;width:auto;max-width:150px;object-fit:contain;border-radius:6px;display:block}
+.logo:has(img.lg) i{display:none}
+.kick:before{content:"";width:28px;height:3px;background:var(--ac);box-shadow:0 0 12px var(--ac)}
+h2{font-size:clamp(38px,10.5vw,64px);line-height:.92;font-weight:800;font-style:italic;margin-bottom:24px}
+h2 em{font-style:italic;color:var(--ac)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.02));border-radius:6px 22px 6px 22px;padding:16px 14px 15px;min-height:150px}
+.card:after{content:attr(data-n);position:absolute;right:10px;top:4px;font-family:'Barlow Condensed';font-style:italic;font-weight:800;font-size:46px;color:rgba(255,255,255,.07)}
+.ic{width:42px;height:42px;display:grid;place-items:center;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#06070a;clip-path:polygon(18% 0,100% 0,82% 100%,0 100%);margin-bottom:12px}
+.ic svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:20px;font-weight:700;line-height:1.02;margin-bottom:5px;font-style:italic}.card p{color:var(--mu);font-size:13px;line-height:1.4}
+.note{color:var(--mu);font-size:12px;margin-top:12px}
+/* CASES */
+.cases{display:grid;gap:14px}
+.case{position:relative;overflow:hidden;border-radius:8px 26px 8px 26px;border:1px solid var(--line);min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.case:before{content:"";position:absolute;inset:0;background:var(--img) center/cover;z-index:-2;transition:.6s}
+.case:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,6,10,.15),rgba(5,6,10,.78) 48%,rgba(5,6,10,.97))}
+.case .in{padding:18px 16px 18px}
+.chip{display:inline-block;background:var(--ac);color:#05060a;font-weight:800;font-size:11px;letter-spacing:1.6px;text-transform:uppercase;padding:4px 10px;clip-path:polygon(8% 0,100% 0,92% 100%,0 100%);margin-bottom:10px}
+.case h3{font-size:27px;line-height:1;font-weight:800;font-style:italic;margin-bottom:10px}
+.case dl{display:grid;gap:7px;font-size:13.5px}.case dt{color:var(--ac);font-weight:700;font-size:11px;letter-spacing:1.6px;text-transform:uppercase}.case dd{color:#dde0e6}
+.case .res{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-weight:600}
+/* REVIEWS */
+.rev{display:grid;gap:12px}
+.rcard{position:relative;border:1px solid var(--line);background:var(--glass);border-radius:6px 22px 6px 22px;padding:18px 16px}
+.rcard:before{content:"“";position:absolute;right:14px;top:-6px;font-family:'Barlow Condensed';font-size:90px;color:var(--ac);opacity:.35;line-height:1}
+.rcard .stars{color:#ffc43d;letter-spacing:3px;font-size:15px;margin-bottom:8px}.rcard p{font-size:15.5px;line-height:1.45}.rcard small{display:block;margin-top:10px;color:var(--mu);font-size:12px}
+.bigrate{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;border:1px solid var(--line);border-radius:8px 26px 8px 26px;padding:18px;margin-bottom:14px;background:radial-gradient(120% 140% at 100% 0,color-mix(in srgb,var(--ac) 28%,transparent),transparent 60%),var(--glass)}
+.bigrate .gauge{width:132px;height:132px}.bigrate .gauge .n{font-size:48px}
+.bigrate .stars{color:#ffc43d;letter-spacing:3px;font-size:20px;display:block}.bigrate b{font-size:20px}.bigrate p{color:var(--mu);font-size:13px}
+/* DIFS */
+.difs{display:grid;gap:10px}.dif{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);background:var(--glass);border-radius:6px 20px 6px 20px;padding:14px}
+.dif .ic{flex:none;margin:0}.dif h3{font-size:19px;font-style:italic;margin-bottom:2px}.dif p{color:var(--mu);font-size:13.5px}
+.photos{display:grid;grid-template-columns:1.3fr 1fr;gap:12px;height:230px;margin-top:14px}
+.photos div{border-radius:8px 24px 8px 24px;background-size:cover;background-position:center;border:1px solid var(--line);position:relative;overflow:hidden}
+.photos div:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.6))}
+/* STEPS */
+.steps{display:grid;gap:10px}.step{display:flex;gap:14px;align-items:center;border:1px solid var(--line);background:var(--glass);border-radius:6px 20px 6px 20px;padding:14px}
+.step b{font-family:'Barlow Condensed';font-style:italic;font-size:46px;line-height:.9;color:var(--ac);font-weight:800;min-width:54px}.step h3{font-size:19px;font-style:italic}.step p{color:var(--mu);font-size:13.5px}
+/* WHERE */
+.where{display:grid;gap:14px}.addr{color:#d8dbe2}
+table{width:100%;border-collapse:collapse}td{padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}td:last-child{text-align:right;color:var(--mu)}
+.cta{margin:56px auto 0;border-radius:10px 34px 10px 34px;padding:44px 20px;text-align:center;position:relative;overflow:hidden;isolation:isolate;max-width:1064px;width:calc(100% - 36px)}
+.cta:before{content:"";position:absolute;inset:0;background:url(img/6870326.jpg) center/cover;z-index:-3}
+.cta:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,6,10,.55),rgba(5,6,10,.9)),radial-gradient(70% 70% at 50% 120%,color-mix(in srgb,var(--ac) 50%,transparent),transparent);z-index:-2}
+.cta h2{margin-bottom:10px}.cta p{color:#d8dbe2;margin-bottom:20px}.cta .b{max-width:340px;margin:0 auto}
+footer{padding:28px 18px 110px;text-align:center;color:var(--mu);font-size:12px}
+.fix{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px 14px;background:linear-gradient(transparent,rgba(5,6,10,.97) 40%)}
+.fix .b{max-width:430px;margin:0 auto}
+.shot .fix{display:none}.shot *{animation:none!important}
+@keyframes push{from{transform:scale(1.14)}to{transform:scale(1)}}
+@keyframes streak{to{background-position:-220px 0}}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(46,230,107,0)}0%{box-shadow:0 0 0 0 rgba(46,230,107,.8)}}
+@keyframes glow{50%{filter:drop-shadow(0 0 14px rgba(37,211,102,.8))}}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(min-width:760px){.hero{min-height:780px}.hero .bg{height:100%;left:0;right:0}.hero .shade{background:linear-gradient(90deg,rgba(5,6,10,.92) 0%,rgba(5,6,10,.55) 40%,rgba(5,6,10,0) 75%),linear-gradient(180deg,rgba(5,6,10,.6) 0,transparent 25%,transparent 70%,var(--bg) 100%)}.btns{flex-direction:row}.grid{grid-template-columns:repeat(3,1fr)}.cases{grid-template-columns:1fr 1fr}.rev{grid-template-columns:repeat(3,1fr)}.difs{grid-template-columns:1fr 1fr}.steps{grid-template-columns:repeat(3,1fr)}.where{grid-template-columns:1fr 1fr}.photos{height:340px}}
+</style></head>
+<body class="">
+<div class="faixa">Proposta de site criada pela <b>Raviva</b> a partir de informações públicas · <b>não é o site oficial</b> de Leonardo Auto Center</div>
+<header class="hero">
+ <div class="bg"></div><div class="shade"></div><div class="lines"></div><div class="grain"></div>
+ <div class="nav"><div class="logo cond"><i></i><style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,800;0,900;1,800;1,900&display=swap');.lgx,.lgx *{text-transform:none!important;font-style:normal!important;letter-spacing:normal}.nt{display:flex;flex-direction:column;line-height:1}.nt b{font:800 20px/1 Montserrat,sans-serif!important;color:#fff}.nt small{font:600 9px/1 Montserrat,sans-serif!important;letter-spacing:.28em!important;color:#2F7DE1;margin-top:4px;text-transform:uppercase!important}h1 em{color:#7fb3ff!important;-webkit-text-stroke:0!important;text-shadow:0 2px 22px rgba(0,0,0,.9)!important}h1{text-shadow:0 2px 24px rgba(0,0,0,.95)!important}.eyebrow{color:#fff!important;text-shadow:0 1px 10px #000}</style><span class="lgx nt"><b>Leonardo</b><small>Auto Center</small></span></div><a class="pill" href="https://wa.me/5562991675854?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20saber%20mais."><span class="live"></span>Seg a Sex · 08:00 às 18:30</a></div>
+ <div class="hbody">
+  <div class="eyebrow">Mecânica e auto elétrica · Parque das Flores · Goiânia</div>
+  <h1>Diagnóstico com tecnologia,<em>sem trocar peça à toa.</em></h1>
+  <p class="sub">Equipe de alto nível técnico, que testa o carro antes de trocar qualquer peça. Mecânica geral e auto elétrica. Nota 4,9 em 34 avaliações no Google.</p>
+  <div class="btns"><a class="b wa" href="https://wa.me/5562991675854?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20saber%20mais."><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>Chamar no WhatsApp</a><a class="b sec" href="https://www.google.com/maps/search/?api=1&amp;query=Leonardo%20Auto%20Center%20Av%20Eurico%20Viana%2C%20N%E2%80%A2%2C%204899%20-%20Qd.%205B%20Lt.%2003%20-%20Parque%20das%20Flores%2C%20Goi%C3%A2nia%20-%20GO%2C%2074595-333">Como chegar</a></div>
+  <div class="hud"><div class="gauge"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="9" stroke-linecap="round" stroke-dasharray="235.6 400"/><circle cx="60" cy="60" r="50" fill="none" stroke="var(--ac)" stroke-width="9" stroke-linecap="round" stroke-dasharray="230.9 400" style="filter:drop-shadow(0 0 6px var(--ac))"/></svg><div class="n">4,9<small>DE 5</small></div></div>
+  <div><span class="stars">★★★★★</span><p><b>34 avaliações</b> de clientes no Google</p></div></div>
+ </div>
+</header>
+<div class="mq"><div><span>Diagnóstico</span><span>Auto elétrica</span><span>Mecânica geral</span><span>Equipamentos modernos</span><span>Atendimento rápido</span><span>Diagnóstico</span><span>Auto elétrica</span><span>Mecânica geral</span><span>Equipamentos modernos</span><span>Atendimento rápido</span></div></div>
+
+<section><div class="kick">Serviços</div><h2>O que fazemos<br>no seu <em>carro</em></h2>
+<div class="grid"><div class="card" data-n="01"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M4 12h16"/></svg></div><h3>Diagnóstico de precisão</h3><p>Vários testes no carro antes de qualquer troca, para achar a causa real.</p></div><div class="card" data-n="02"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 14l4-5"/><path d="M3.5 17a9.5 9.5 0 1 1 17 0"/></svg></div><h3>Auto elétrica</h3><p>Elogiada como a melhor da região pelos clientes.</p></div><div class="card" data-n="03"><div class="ic"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3>Mecânica geral</h3><p>Manutenção e reparo com mão de obra de confiança.</p></div><div class="card" data-n="04"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></div><h3>Equipamentos modernos</h3><p>A oficina tem equipamentos com muita tecnologia para avaliar qualquer veículo.</p></div><div class="card" data-n="05"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 15v-3l2-5a2 2 0 0 1 2-1h10a2 2 0 0 1 2 1l2 5v3"/><path d="M3 15h18v3H3z"/><circle cx="7.5" cy="18" r="1.5"/><circle cx="16.5" cy="18" r="1.5"/></svg></div><h3>Carros importados</h3><p>Tem cliente que resolveu o problema da Mercedes num piscar de olhos.</p></div><div class="card" data-n="06"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Atendimento rápido</h3><p>Atendimento eficaz e sempre em prontidão.</p></div></div></section>
+
+<section><div class="kick">Clientes atendidos</div><h2>Histórias de clientes<br>que a gente <em>atendeu</em></h2>
+<div class="cases"><article class="case" style="--img:url(img/4116193.jpg)"><div class="in"><span class="chip">Problema difícil</span><h3>Só eles resolveram</h3><dl><div><dt>O problema</dt><dd>Um cliente tinha um problema que outras oficinas não resolveram.</dd></div><div><dt>A solução</dt><dd>A equipe fez vários testes e encontrou a causa, com precisão.</dd></div></dl><div class="res">Ele elogia o alto nível técnico da equipe.</div></div></article><article class="case" style="--img:url(img/8985702.jpg)"><div class="in"><span class="chip">Mercedes</span><h3>Resolvido num piscar de olhos</h3><dl><div><dt>O problema</dt><dd>Um cliente tinha um problema elétrico na Mercedes.</dd></div><div><dt>A solução</dt><dd>A auto elétrica resolveu rápido.</dd></div></dl><div class="res">Chamou de a melhor auto elétrica da região.</div></div></article><article class="case" style="--img:url(img/6870331.jpg)"><div class="in"><span class="chip">Atendimento</span><h3>A dona e os mecânicos</h3><dl><div><dt>O problema</dt><dd>Um cliente valorizou o atendimento.</dd></div><div><dt>A solução</dt><dd>Foi recebido pela dona e por mecânicos excelentes.</dd></div></dl><div class="res">Recomenda a oficina.</div></div></article></div><p class="note">Casos relatados por clientes nas avaliações do Google, resumidos. Imagens ilustrativas.</p></section>
+
+<section><div class="kick">Avaliações</div><h2>O que os clientes<br>dizem no <em>Google</em></h2>
+<div class="bigrate"><div class="gauge"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="9" stroke-linecap="round" stroke-dasharray="235.6 400"/><circle cx="60" cy="60" r="50" fill="none" stroke="var(--ac)" stroke-width="9" stroke-linecap="round" stroke-dasharray="230.9 400" style="filter:drop-shadow(0 0 6px var(--ac))"/></svg><div class="n">4,9<small>DE 5</small></div></div><div><span class="stars">★★★★★</span><b>34 avaliações</b><p>Nota real dos clientes no Google</p></div></div>
+<div class="rev"><div class="rcard"><div class="stars">★★★★★</div><p>Não trocam peça à toa: fazem vários testes, têm precisão cirúrgica e equipamentos com muita tecnologia.</p><small>Cliente · avaliação no Google · há 3 meses</small></div><div class="rcard"><div class="stars">★★★★★</div><p>Melhor auto elétrica da região. Resolveu o problema da minha Mercedes num piscar de olhos.</p><small>Cliente · avaliação no Google · há 4 anos</small></div><div class="rcard"><div class="stars">★★★★★</div><p>Equipe qualificada e, o principal, resolveram meu problema.</p><small>Cliente · avaliação no Google · há 1 semana</small></div></div><p class="note">Avaliações de clientes no Google, resumidas.</p></section>
+
+<section><div class="kick">Nossos diferenciais</div><h2>Por que os clientes<br><em>voltam</em></h2>
+<div class="difs"><div class="dif"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .9-5.1 4.8 1.3 7L12 17.8 5.8 21.2l1.3-7L2 9.4l7-.9z"/></svg></div><div><h3>Nota 4,9</h3><p>Em 34 avaliações no Google.</p></div></div><div class="dif"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M4 12h16"/></svg></div><div><h3>Sem troca à toa</h3><p>Testes antes de trocar peça.</p></div></div><div class="dif"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></div><div><h3>Tecnologia</h3><p>Equipamentos modernos de diagnóstico.</p></div></div><div class="dif"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h3>Até 18h30</h3><p>Atendimento de segunda a sexta.</p></div></div></div>
+<div class="photos"><div style="background-image:url(img/4116207.jpg)"></div><div style="background-image:url(img/8986035.jpg)"></div></div></section>
+
+<section><div class="kick">Como funciona</div><h2>Como funciona<br>o <em>atendimento</em></h2>
+<div class="steps">
+<div class="step"><b>01</b><div><h3>Você chama a gente no WhatsApp</h3><p>Conte o que o seu carro está apresentando e peça um orçamento, sem compromisso.</p></div></div><div class="step"><b>02</b><div><h3>A gente avalia e explica</h3><p>A equipe olha o carro e explica, em palavras simples, o que precisa ser feito e quanto vai custar.</p></div></div><div class="step"><b>03</b><div><h3>Você aprova antes de começar</h3><p>O serviço só começa depois que você concorda com o orçamento, e você acompanha cada etapa.</p></div></div></div></section>
+
+<section><div class="kick">Venha nos visitar</div><h2>Onde<br><em>estamos</em></h2>
+<div class="where"><div><p class="addr">Av Eurico Viana, N•, 4899 - Qd. 5B Lt. 03 - Parque das Flores, Goiânia - GO, 74595-333</p><a class="b sec" style="margin-top:14px" href="https://www.google.com/maps/search/?api=1&amp;query=Leonardo%20Auto%20Center%20Av%20Eurico%20Viana%2C%20N%E2%80%A2%2C%204899%20-%20Qd.%205B%20Lt.%2003%20-%20Parque%20das%20Flores%2C%20Goi%C3%A2nia%20-%20GO%2C%2074595-333">Abrir no mapa</a></div><table><tr><td>Seg a Sex</td><td>08:00 às 18:30</td></tr><tr><td>Sáb a Dom</td><td>Fechado</td></tr></table></div></section>
+
+<div class="cta"><h2>Fale com a gente<br>pelo <em>WhatsApp</em></h2><p>Estamos no Parque das Flores, em Goiânia. Chame no WhatsApp e conte o que o seu carro está apresentando.</p><a class="b wa" href="https://wa.me/5562991675854?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20saber%20mais.">Chamar no WhatsApp</a></div>
+<footer>Proposta de site · Raviva · imagens ilustrativas</footer>
+<div class="fix"><a class="b wa" href="https://wa.me/5562991675854?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20quero%20saber%20mais.">Chamar no WhatsApp</a></div>
+<script>if(location.search.indexOf('shot')>-1)document.body.classList.add('shot')</script>
+</body></html>
