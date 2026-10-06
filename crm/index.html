@@ -27,7 +27,7 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
 .tab{all:unset;cursor:pointer;white-space:nowrap;padding:.6rem .95rem .7rem;font:700 .82rem var(--type);color:var(--mudo);border-bottom:2px solid transparent}
 .tab b{font-weight:400;opacity:.7;margin-left:.35rem}
 .tab.vz{opacity:.55}.tab[aria-selected="true"]{color:var(--sol);border-bottom-color:var(--sol)}
-.kpis{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--linha);margin:22px 0 16px}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--linha);margin:22px 0 16px}
 .kpi{padding:16px 18px;border-right:1px solid var(--linha)}.kpi:last-child{border:0}
 .kpi b{display:block;font:600 2.1rem/1 var(--serif)}.kpi span{color:var(--mudo)}
 .kpi.sol b{color:var(--sol)}
@@ -47,6 +47,7 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
 .f-txt p{margin-bottom:.35rem}
 .f-txt .prox{color:var(--sol)}
 .f-txt .cli{color:var(--mudo);font-style:italic}
+.visto{display:block;margin-top:.3rem;color:var(--musgo)}.visto.nao{color:var(--mudo)}
 .f-acts{display:flex;flex-direction:column;gap:6px}
 .f-acts a{text-decoration:none;text-align:center;padding:.45rem .7rem;border:1px solid var(--linha);font:700 .76rem var(--type);white-space:nowrap}
 .f-acts a:hover{border-color:var(--sol);color:var(--sol)}
@@ -54,7 +55,7 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
 .vazio{padding:40px;text-align:center;color:var(--mudo);border:1px dashed var(--linha)}
 .cofre{min-height:100vh;display:grid;place-items:center;text-align:center;padding:24px}
 .cofre h1{font:600 2rem var(--serif);margin-bottom:.6rem}.cofre p{color:var(--mudo);max-width:40ch;margin:0 auto}
-@media (max-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}.kpi:nth-child(3){border-right:0}.kpi:nth-child(n+4){border-top:1px solid var(--linha)}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}.kpi:nth-child(6){border-right:0}.kpi:nth-child(3){border-right:0}.kpi:nth-child(n+4){border-top:1px solid var(--linha)}
  .ficha{grid-template-columns:1fr auto}.f-txt{grid-column:1/-1}.f-st{grid-column:2;grid-row:1;text-align:right}.f-acts{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}
  .hd .type{display:none}}
 </style>
@@ -65,6 +66,8 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
 (async () => {
   'use strict';
   const app = document.getElementById('app');
+  // Quem abre o CRM é o dono: marca este navegador para o rastreio das propostas (mesmo domínio) não contar as aberturas dele.
+  try { localStorage.setItem('rvv_eu', '1'); } catch (_) { /* sem storage: ok */ }
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const cofre = (t, p) => { app.innerHTML = `<div class="cofre"><div><h1>${t}</h1><p class="type">${p}</p></div></div>`; };
   const k = new URLSearchParams(location.hash.slice(1)).get('k');
@@ -87,7 +90,10 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
   const segs = ['Todos', ...(dados.segmentos || [...new Set(L.map(l => l.segmento))])];
   let seg = (() => { try { return localStorage.getItem('rv-crm-seg') || 'Todos'; } catch (_) { return 'Todos'; } })();
   if (!segs.includes(seg)) seg = 'Todos';
-  let busca = '', fst = '';
+  let busca = '', fst = '', fvi = '';
+  const min = s => s < 60 ? s + ' s' : Math.round(s / 60) + ' min';
+  const vis = l => l.visto ? `<span class="visto type">abriu a proposta ${l.visto.aberturas}x · última ${esc(dt(l.visto.ultima))} · ${min(l.visto.segundos)} · rolou ${l.visto.rolagem}%${l.visto.clicou_wa ? ' · <b>clicou no WhatsApp</b>' : ''}</span>`
+    : (l.link_em ? `<span class="visto nao type">${l.leitura === 'lida' ? 'leu a mensagem · ' : l.leitura === 'entregue' ? 'mensagem entregue, sem tique azul · ' : ''}proposta ainda não aberta</span>` : '');
   const dt = s => s ? s.slice(8, 10) + '/' + s.slice(5, 7) + ' ' + s.slice(11, 16) : '—';
   const respondeu = l => l.recebidas > 0;
 
@@ -98,9 +104,10 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
     const quentes = sub.filter(l => ['Interessado', 'Ajustando o site', 'Negociando'].includes(l.status)).length;
     const fech = sub.filter(l => l.status === 'Fechado').length;
     const fila = sub.filter(l => l.status === 'Na fila').length;
+    const viram = sub.filter(l => l.visto).length, comLink = sub.filter(l => l.link_em).length;
     const cont = {}; sub.forEach(l => cont[l.status] = (cont[l.status] || 0) + 1);
     const tot = sub.length || 1;
-    const lista = sub.filter(l => (!fst || l.status === fst) && (!busca || (l.nome + ' ' + l.cidade + ' ' + l.resumo).toLowerCase().includes(busca)))
+    const lista = sub.filter(l => (!fst || l.status === fst) && (!fvi || (fvi === 'sim' ? !!l.visto : fvi === 'leu' ? (!l.visto && l.leitura === 'lida') : (!l.visto && l.link_em))) && (!busca || (l.nome + ' ' + l.cidade + ' ' + l.resumo).toLowerCase().includes(busca)))
       .sort((a, b) => ORDEM.indexOf(a.status) - ORDEM.indexOf(b.status) || (b.ultima_em || '').localeCompare(a.ultima_em || ''));
     app.innerHTML = `
 <header><div class="w"><div class="hd"><h1>CRM <span>·</span> Raviva</h1><p class="type">Atualizado ${esc(dt(dados.gerado_em))}${dados.ia ? ' · análise por IA' : ' · análise por regras'}</p></div>
@@ -111,16 +118,18 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
  <div class="kpi"><b>${resp}</b><span class="type">responderam · ${abord.length ? Math.round(100 * resp / abord.length) : 0}%</span></div>
  <div class="kpi sol"><b>${quentes}</b><span class="type">interessados</span></div>
  <div class="kpi"><b>${fech}</b><span class="type">fechados</span></div>
+ <div class="kpi"><b>${viram}</b><span class="type">abriram a proposta${comLink ? ' · ' + Math.round(100 * viram / comLink) + '%' : ''}</span></div>
  <div class="kpi"><b>${fila}</b><span class="type">na fila de envio</span></div>
 </section>
 <div class="funil" aria-label="Distribuição por status">${ORDEM.filter(s => cont[s]).map(s => `<i style="background:${COR[s]};width:${100 * cont[s] / tot}%" title="${esc(s)}: ${cont[s]}">${cont[s]}</i>`).join('')}</div>
 <div class="leg type">${ORDEM.filter(s => cont[s]).map(s => `<span style="--c:${COR[s]}">${esc(s)} ${cont[s]}</span>`).join('')}</div>
 <div class="filtro"><input id="q" type="search" placeholder="Buscar negócio, cidade, assunto…" value="${esc(busca)}">
-<select id="st"><option value="">Todos os status</option>${ORDEM.filter(s => cont[s]).map(s => `<option ${s === fst ? 'selected' : ''}>${esc(s)}</option>`).join('')}</select></div>
+<select id="st"><option value="">Todos os status</option>${ORDEM.filter(s => cont[s]).map(s => `<option ${s === fst ? 'selected' : ''}>${esc(s)}</option>`).join('')}</select>
+<select id="vi"><option value="">Proposta: todas</option><option value="sim" ${fvi === 'sim' ? 'selected' : ''}>Abriram a proposta</option><option value="nao" ${fvi === 'nao' ? 'selected' : ''}>Não abriram</option><option value="leu" ${fvi === 'leu' ? 'selected' : ''}>Leram a mensagem, não abriram</option></select></div>
 <section class="lista">${lista.length ? lista.map(l => `
  <article class="ficha" style="--c:${COR[l.status] || '#444'}">
   <div><div class="f-nome">${esc(l.nome)}</div><div class="f-meta type">${esc(l.segmento)} · ${esc(l.cidade || '—')}${l.nota ? ' · ' + String(l.nota).replace('.', ',') + '★ (' + l.avaliacoes + ')' : ''}<br>
-   abordagem ${esc(dt(l.abordado_em))}${l.link_em ? ' · link ' + esc(dt(l.link_em)) : ''}<br>última msg ${esc(dt(l.ultima_em))} · ${l.recebidas} do cliente${l.auto ? ' · <span style="color:var(--brasa)">resposta automática</span>' : ''}</div></div>
+   abordagem ${esc(dt(l.abordado_em))}${l.link_em ? ' · link ' + esc(dt(l.link_em)) : ''}<br>última msg ${esc(dt(l.ultima_em))} · ${l.recebidas} do cliente${l.auto ? ' · <span style="color:var(--brasa)">resposta automática</span>' : ''}${vis(l)}</div></div>
   <div class="f-st"><span class="pill">${esc(l.status)}</span>${l.temperatura ? `<span class="temp type">${esc(l.temperatura)}</span>` : ''}</div>
   <div class="f-txt">${l.resumo ? `<p>${esc(l.resumo)}</p>` : ''}${l.proximo_passo ? `<p class="prox type">→ ${esc(l.proximo_passo)}</p>` : ''}${l.ultima_do_cliente ? `<p class="cli">“${esc(l.ultima_do_cliente)}”</p>` : (l.resumo ? '' : '<p class="type" style="color:var(--mudo)">Sem resposta do cliente ainda.</p>')}</div>
   <div class="f-acts"><a class="wa" href="https://wa.me/${esc(l.num)}" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="${esc(l.proposta)}" target="_blank" rel="noopener noreferrer">Proposta</a></div>
@@ -129,6 +138,7 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
     app.querySelectorAll('.tab').forEach(b => b.onclick = () => { seg = b.dataset.s; fst = ''; try { localStorage.setItem('rv-crm-seg', seg); } catch (_) { /* sem storage: ok */ } render(); });
     const q = app.querySelector('#q'); q.oninput = () => { busca = q.value.toLowerCase(); const p = q.selectionStart; render(); const n = app.querySelector('#q'); n.focus(); n.setSelectionRange(p, p); };
     app.querySelector('#st').onchange = e => { fst = e.target.value; render(); };
+    app.querySelector('#vi').onchange = e => { fvi = e.target.value; render(); };
   }
   render();
 })();
