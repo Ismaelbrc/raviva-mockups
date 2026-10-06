@@ -93,7 +93,7 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
   let busca = '', fst = '', fvi = '';
   const min = s => s < 60 ? s + ' s' : Math.round(s / 60) + ' min';
   const vis = l => l.visto ? `<span class="visto type">abriu a proposta ${l.visto.aberturas}x · última ${esc(dt(l.visto.ultima))} · ${min(l.visto.segundos)} · rolou ${l.visto.rolagem}%${l.visto.clicou_wa ? ' · <b>clicou no WhatsApp</b>' : ''}</span>`
-    : (l.link_em ? `<span class="visto nao type">${l.leitura === 'lida' ? 'leu a mensagem · ' : l.leitura === 'entregue' ? 'mensagem entregue, sem tique azul · ' : ''}proposta ainda não aberta</span>` : '');
+    : (l.link_em ? `<span class="visto nao type">${l.leitura === 'lida' ? 'leu a mensagem · ' : l.leitura === 'entregue' ? 'mensagem entregue, sem tique azul · ' : ''}${dados.rastreio ? 'proposta ainda não aberta' : 'abertura da proposta: rastreio ainda não ligado'}</span>` : '');
   const dt = s => s ? s.slice(8, 10) + '/' + s.slice(5, 7) + ' ' + s.slice(11, 16) : '—';
   const respondeu = l => l.recebidas > 0;
 
@@ -118,7 +118,7 @@ header{position:sticky;top:0;z-index:10;background:#0d0c0ae6;-webkit-backdrop-fi
  <div class="kpi"><b>${resp}</b><span class="type">responderam · ${abord.length ? Math.round(100 * resp / abord.length) : 0}%</span></div>
  <div class="kpi sol"><b>${quentes}</b><span class="type">interessados</span></div>
  <div class="kpi"><b>${fech}</b><span class="type">fechados</span></div>
- <div class="kpi"><b>${viram}</b><span class="type">abriram a proposta${comLink ? ' · ' + Math.round(100 * viram / comLink) + '%' : ''}</span></div>
+ <div class="kpi"><b>${viram}</b><span class="type">${dados.rastreio ? 'abriram a proposta' + (comLink ? ' · ' + Math.round(100 * viram / comLink) + '%' : '') : 'abriram a proposta · rastreio não ligado'}</span></div>
  <div class="kpi"><b>${fila}</b><span class="type">na fila de envio</span></div>
 </section>
 <div class="funil" aria-label="Distribuição por status">${ORDEM.filter(s => cont[s]).map(s => `<i style="background:${COR[s]};width:${100 * cont[s] / tot}%" title="${esc(s)}: ${cont[s]}">${cont[s]}</i>`).join('')}</div>
