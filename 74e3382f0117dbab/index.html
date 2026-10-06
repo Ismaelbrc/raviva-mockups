@@ -278,5 +278,39 @@ body{display:flex;flex-direction:column}
   if(new URLSearchParams(location.search).has('static'))pend.forEach(function(el){el.classList.add('in');});
 })();
 </script>
+<!-- rvv-rastreio --><script>/* Rastreio Raviva (propostas): abertura, tempo com a página visível, rolagem máxima e clique no WhatsApp. Sem cookie, sem IP. */
+(function () {
+  try {
+    var m = location.pathname.match(/^\/([a-f0-9]{16})\//);
+    if (!m || navigator.webdriver || /[?&](shot|static)\b/.test(location.search)) return;
+    try { if (localStorage.getItem('rvv_eu')) return; } catch (_) { /* sem storage: rastreia normalmente */ }
+    var URL_E = 'https://track.raviva.com.br/e', t = m[1], s = '', ms = 0, sc = 0, wa = 0, desde = document.hidden ? 0 : Date.now();
+    var a = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    for (var i = 0; i < 16; i++) s += a[Math.floor(Math.random() * a.length)];
+    function tempo() { if (desde) { ms += Date.now() - desde; desde = document.hidden ? 0 : Date.now(); } }
+    function rolagem() {
+      var h = document.documentElement, alt = Math.max(h.scrollHeight - h.clientHeight, 1);
+      sc = Math.max(sc, Math.min(100, Math.round(100 * (window.scrollY || h.scrollTop) / alt)));
+    }
+    function envia() {
+      tempo();
+      var b = JSON.stringify({ t: t, s: s, ms: ms, sc: sc, wa: wa });
+      if (navigator.sendBeacon) navigator.sendBeacon(URL_E, new Blob([b], { type: 'text/plain;charset=UTF-8' }));
+      else fetch(URL_E, { method: 'POST', body: b, keepalive: true, mode: 'no-cors', headers: { 'Content-Type': 'text/plain' } });
+    }
+    addEventListener('scroll', rolagem, { passive: true });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { envia(); desde = 0; } else { desde = Date.now(); }
+    });
+    addEventListener('pagehide', envia);
+    document.addEventListener('click', function (e) {
+      var l = e.target.closest && e.target.closest('a[href*="wa.me"],a[href*="whatsapp.com"]');
+      if (l) { wa = 1; envia(); }
+    }, true);
+    setTimeout(function () { rolagem(); envia(); }, 2500);
+    setInterval(function () { if (!document.hidden) envia(); }, 15000);
+  } catch (e) { /* rastreio nunca pode quebrar a proposta */ }
+})();
+</script><!-- /rvv-rastreio -->
 </body>
 </html>

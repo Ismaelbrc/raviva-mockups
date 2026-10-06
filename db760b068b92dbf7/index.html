@@ -72,4 +72,38 @@ table{width:100%;border-collapse:collapse;margin:1.6rem 0}td{padding:.9rem 0;bor
 <section class="box"><div class="w g"><div><h2 class="cond rv">Venha trocar o óleo<br>com a gente.</h2><p class="rv" style="margin-top:1.4rem;max-width:44ch;color:#cfc9bd">A loja fica na Avenida Goiás, no Setor Central de Goiânia, e tem cliente que vem até de Goiatuba para trocar o óleo aqui. Chame no WhatsApp, diga o modelo do seu carro e a gente já deixa tudo separado para você.</p><p style="margin-top:2rem"><a class="cta" href="https://wa.me/5562993790319?text=Ol%C3%A1%2C%20Fabiano%21%20Vi%20o%20site%20e%20quero%20agendar%20uma%20troca%20de%20%C3%B3leo." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span>Agendar pelo WhatsApp</span></a></p></div>
 <div class="rv"><p class="addr">Av. Goiás, 3594 · Setor Central · Goiânia</p><table><tr><td>Seg a Sex</td><td>07:30 às 18:00</td></tr><tr><td>Sábado</td><td>07:30 às 14:00</td></tr><tr><td>Domingo</td><td>Fechado</td></tr></table><a class="mono" href="https://www.google.com/maps/search/?api=1&query=Super%20Troca%20de%20%C3%93leo%20do%20Fabiano%20Av.%20Goi%C3%A1s%203594%20Setor%20Central%20Goi%C3%A2nia" target="_blank" rel="noopener" style="color:var(--y)">Abrir no mapa →</a></div></div></section>
 <script>(function(){var p=[].slice.call(document.querySelectorAll('.rv'));function f(){var H=innerHeight*.9;p=p.filter(function(e){if(e.getBoundingClientRect().top>H)return true;e.classList.add('in');return false;});}
-addEventListener('scroll',f,{passive:true});f();if(new URLSearchParams(location.search).has('static'))p.forEach(function(e){e.classList.add('in')});})();</script></body></html>
+addEventListener('scroll',f,{passive:true});f();if(new URLSearchParams(location.search).has('static'))p.forEach(function(e){e.classList.add('in')});})();</script><!-- rvv-rastreio --><script>/* Rastreio Raviva (propostas): abertura, tempo com a página visível, rolagem máxima e clique no WhatsApp. Sem cookie, sem IP. */
+(function () {
+  try {
+    var m = location.pathname.match(/^\/([a-f0-9]{16})\//);
+    if (!m || navigator.webdriver || /[?&](shot|static)\b/.test(location.search)) return;
+    try { if (localStorage.getItem('rvv_eu')) return; } catch (_) { /* sem storage: rastreia normalmente */ }
+    var URL_E = 'https://track.raviva.com.br/e', t = m[1], s = '', ms = 0, sc = 0, wa = 0, desde = document.hidden ? 0 : Date.now();
+    var a = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    for (var i = 0; i < 16; i++) s += a[Math.floor(Math.random() * a.length)];
+    function tempo() { if (desde) { ms += Date.now() - desde; desde = document.hidden ? 0 : Date.now(); } }
+    function rolagem() {
+      var h = document.documentElement, alt = Math.max(h.scrollHeight - h.clientHeight, 1);
+      sc = Math.max(sc, Math.min(100, Math.round(100 * (window.scrollY || h.scrollTop) / alt)));
+    }
+    function envia() {
+      tempo();
+      var b = JSON.stringify({ t: t, s: s, ms: ms, sc: sc, wa: wa });
+      if (navigator.sendBeacon) navigator.sendBeacon(URL_E, new Blob([b], { type: 'text/plain;charset=UTF-8' }));
+      else fetch(URL_E, { method: 'POST', body: b, keepalive: true, mode: 'no-cors', headers: { 'Content-Type': 'text/plain' } });
+    }
+    addEventListener('scroll', rolagem, { passive: true });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { envia(); desde = 0; } else { desde = Date.now(); }
+    });
+    addEventListener('pagehide', envia);
+    document.addEventListener('click', function (e) {
+      var l = e.target.closest && e.target.closest('a[href*="wa.me"],a[href*="whatsapp.com"]');
+      if (l) { wa = 1; envia(); }
+    }, true);
+    setTimeout(function () { rolagem(); envia(); }, 2500);
+    setInterval(function () { if (!document.hidden) envia(); }, 15000);
+  } catch (e) { /* rastreio nunca pode quebrar a proposta */ }
+})();
+</script><!-- /rvv-rastreio -->
+</body></html>
